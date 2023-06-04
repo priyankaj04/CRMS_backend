@@ -1,0 +1,20 @@
+{
+  "name": "crms_backend",
+  "version": "1.0.0",
+  "description": "Backend for CRMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Priyanka J",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "nodemon": "^2.0.22",
+    "pg": "^8.11.0",
+    "uuid": "^9.0.0"
+  }
+}
