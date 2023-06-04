@@ -1,21 +1,23 @@
 const express = require('express')
 const app = express();
 const cors = require('cors');
+const bodyParser = require('body-parser')
 
-const routes = require('./routers/index');
+const talent = require('./routers/talent');
+//const resume = require('./routers/resume');
+//const application = require('./routers/application');
+//const recruiter = require('./routers/recruiter');
 
 app.use(express.json());
 app.use(cors());
-
-
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
-
-
-app.use('/api', routes)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.disable('x-powered-by')
 
 app.listen(8000, () => {
     console.log(`Example app listening on port 8000`)
 })
+
+app.use('/api/talent', talent);
+//app.use('/api/resume', resume);
+//app.use('/api/application', application);
+//app.use('/api/recruiter', recruiter);

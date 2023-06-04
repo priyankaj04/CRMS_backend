@@ -5,7 +5,7 @@ const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword } = require('../src/functions');
 
 //"POST" method for student registration
-app.post('/registration', async (req, res) => {
+app.route('/registration').post(async (req, res) => {
     try {
         const { firstname, lastname, register_no, email, password } = req.body;
         let stud_id = uuidv4();
@@ -24,7 +24,7 @@ app.post('/registration', async (req, res) => {
 })
 
 //"POST" method for student login
-app.post('/login', async (req, res) => {
+app.route('/login').post(async (req, res) => {
     try {
         let response = {};
         const { register_no, password } = req.body;
@@ -53,11 +53,11 @@ app.post('/login', async (req, res) => {
 
 
 // "GET" method for getting talent details by register no
-app.get('/talent/:id', async (req, res) => {
+app.route('/talent/:id').get(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};
-        const getTalentQuery = await pool.query(`SELECT * FROM talent WHERE register_no = $1`, [id]);
+        const getTalentQuery = await pool.query(`SELECT * FROM talent WHERE talent_id = $1`, [id]);
         if (getTalentQuery.rows.length > 0) {
             response.status = 1;
             response.data = getTalentQuery.rows
@@ -77,7 +77,7 @@ app.get('/talent/:id', async (req, res) => {
 
 
 //"PUT" method for updating talent details
-app.put('/update/:id', async (req, res) => {
+app.route('/talent/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};
@@ -101,34 +101,8 @@ app.put('/update/:id', async (req, res) => {
     }
 })
 
-//"PUT" method for getting 
-app.put('/update/:id', async (req, res) => {
-    const id = req.params.id;
-    try {
-        let response = {};
-        console.log(req.body)
-        const body = req.body;
-        const columns = Object.keys(body);
-        const values = columns.map(col => body[col]);
-        const placeholders = columns.map((col, index) => `${col} = $${index + 1}`).join(', ');
-        const updateQuery = await pool.query(`UPDATE talent SET ${placeholders} WHERE talent_id = $${columns.length + 1}`, [...values, id]);
-        if (updateQuery.rowCount > 0) {
-            response.status = 1;
-            response.data = { message: "PASSWORD CHANGED SUCCESSFUL" };
-        } else {
-            response.status = 0;
-            response.data = { message: "PASSWORD UPDATION FAILED" };
-        }
-        res.json(response);
-    } catch (err) {
-        res.json({ status: 0, data: { message: err.message } })
-        console.log(err.message);
-    }
-})
-
-
 //'PUT' method to change password
-app.put('/changepassword/:id', async (req, res) => {
+app.route('/changepassword/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {}
@@ -158,3 +132,5 @@ app.put('/changepassword/:id', async (req, res) => {
         console.log(err.message);
     }
 })
+
+module.exports = app;
