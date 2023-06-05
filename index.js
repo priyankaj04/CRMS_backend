@@ -4,7 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser')
 
 const talent = require('./routers/talent');
-//const resume = require('./routers/resume');
+const resume = require('./routers/resume');
 //const application = require('./routers/application');
 //const recruiter = require('./routers/recruiter');
 
@@ -18,6 +18,6 @@ app.listen(8000, () => {
 })
 
 app.use('/api/talent', talent);
-//app.use('/api/resume', resume);
+app.use('/api/resume', resume);
 //app.use('/api/application', application);
 //app.use('/api/recruiter', recruiter);

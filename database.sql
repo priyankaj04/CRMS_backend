@@ -35,13 +35,13 @@ CREATE TABLE talent(
 CREATE TABLE resume(
     resume_id UUID PRIMARY KEY,
     talent_id UUID,
-    education JSON,
-    job JSON,
-    internship JSON,
-    position_of_responsibility JSON,
-    cerficate JSON,
-    project JSON,
-    skill JSON,
-    accomplishment JSON,
+    education JSON[], 10th
+    job JSON[],
+    internship JSON[],
+    position_of_responsibility JSON[],
+    cerficate JSON[],
+    project JSON[],
+    skill JSON[],
+    accomplishment JSON[],
     datetime VARCHAR(255)
 );
