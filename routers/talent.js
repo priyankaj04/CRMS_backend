@@ -36,7 +36,7 @@ app.route('/login').post(async (req, res) => {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
                 response.status = 1;
-                response.data = { message: "SUCCESSFUL LOGIN" }
+                response.data = { message: "SUCCESSFUL LOGIN", talent_id: newLogin.rows[0].talent_id }
             } else {
                 response.status = 0;
                 response.data = { message: "PASSWORD DID NOT MATCH" }
@@ -52,8 +52,8 @@ app.route('/login').post(async (req, res) => {
 //----------------------------------------------------------------
 
 
-// "GET" method for getting talent details by register no
-app.route('/talent/:id').get(async (req, res) => {
+// "GET" method for getting talent details by talent id
+app.route('/:id').get(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};
@@ -63,7 +63,7 @@ app.route('/talent/:id').get(async (req, res) => {
             response.data = getTalentQuery.rows
         } else {
             response.status = 0;
-            response.data = { message: "No talent exists with this register no" }
+            response.data = { message: "No talent exists with this talent id" }
         }
         res.json(response);
     } catch (err) {
@@ -77,7 +77,7 @@ app.route('/talent/:id').get(async (req, res) => {
 
 
 //"PUT" method for updating talent details
-app.route('/talent/:id').put(async (req, res) => {
+app.route('/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};

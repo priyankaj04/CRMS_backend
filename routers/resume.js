@@ -8,8 +8,8 @@ const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 app.route('/update/:id').post(async (req, res) => {
     const id = req.params.id;
     let response = {};
+    let body = req.body;
     try {
-        const body = req.body;
         console.log(body);
         const getResumeQuery = await pool.query(`SELECT * FROM resume WHERE talent_id = $1`, [id]);
         //console.log(getResumeQuery.rows[0]["education"][0].school)
