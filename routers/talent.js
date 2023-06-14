@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
-const { Hashpassword, Comparepassword } = require('../src/functions');
+const { Hashpassword, Comparepassword, sendOTP, generateRandomNumber } = require('../src/functions');
 
 //"POST" method for student registration
 app.route('/registration').post(async (req, res) => {
@@ -22,6 +22,55 @@ app.route('/registration').post(async (req, res) => {
         console.log(err.message);
     }
 })
+
+//"POST" method to verify email by sending otp
+app.route('/verify/:id').post(async (req, res) => {
+    const id = req.params.id;
+    console.log(req.body);
+    let response = {};
+    try {
+        const otp = generateRandomNumber().toString();
+        const encrypt = await Hashpassword(otp);
+        const query = await pool.query("UPDATE talent SET otp = $1 WHERE talent_id = $2", [encrypt, id])
+        const resp = sendOTP(req.body.email, otp);
+        if (resp.status) {
+            response.status = 1;
+            response.message = "OTP Sent to your email successfully.";
+        } else {
+            response.status = 0;
+            response.message = resp.message;
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({status: 0, message: err})
+        console.log(err.message);
+    }
+})
+
+//"POST" method to check opt and authorization
+app.route('/auth/:id').post(async (req, res) => {
+    const id = req.params.id;
+    console.log(req.body);
+    let response = {};
+    try {
+        const query = await pool.query("SELECT otp FROM talent WHERE talent_id= $1", [id])
+        console.log(query);
+        const auth = await Comparepassword(req.body.otp, query.rows[0].otp);
+
+        if (auth) {
+            const updateQuery = pool.query("UPDATE talent SET auth = $1, otp = $2 WHERE talent_id = $3", ["1", "0", id])
+            if (updateQuery.rowsCount > 0) {
+                response.status = 1;
+                response.message = updateQuery.rows;
+            }
+        }
+         res.json(response);
+    } catch (err) {
+        res.json({ status: 0, message: err })
+        console.log(err.message);
+    }
+})
+
 
 //"POST" method for student login
 app.route('/login').post(async (req, res) => {

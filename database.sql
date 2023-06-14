@@ -19,7 +19,10 @@ CREATE TABLE talent(
     saved VARCHAR(255)[],
     datetime VARCHAR(255),
     url JSON,
-    resume_id UUID
+    resume_id UUID,
+    city VARCHAR(255),
+    otp VARCHAR(255),
+    auth VARCHAR(255)
 );
 
 -- profile image, url, created_At
