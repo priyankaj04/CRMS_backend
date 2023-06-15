@@ -27,6 +27,15 @@ CREATE TABLE talent(
 
 -- profile image, url, created_At
 
+CREATE TABLE admin(
+    admin_id UUID NOT NULL,
+    email VARCHAR(255) PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    contactno VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE resume(
     resume_id UUID PRIMARY KEY NOT NULL,
     talent_id UUID NOT NULL,

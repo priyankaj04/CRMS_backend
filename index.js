@@ -8,6 +8,7 @@ const resume = require('./routers/resume');
 const application = require('./routers/application');
 const recruiter = require('./routers/recruiter');
 const query = require('./routers/query');
+const admin = require('./routers/admin');
 
 app.use(express.json());
 app.use(cors());
@@ -26,3 +27,4 @@ app.use('/api/resume', resume);
 app.use('/api/application', application);
 app.use('/api/recruiter', recruiter);
 app.use('/api/query', query);
+app.use('/api/admin', admin);

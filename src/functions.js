@@ -33,24 +33,29 @@ const transporter = nodemailer.createTransport({
 });
 
 // Define a function to send the email
-const sendOTP = (email, otp) => {
+const sendOTP = async (email, otp) => {
     const mailOptions = {
         from: 'priyankaj2002o4@gmail.com',
         to: email,
         subject: 'Your OTP',
         text: `Your One-Time Password (OTP) is: ${otp}`,
     };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        console.log(info);
-        if (error) {
-            console.error('Error sending OTP emailkjhkkjh', error);
-            return { status : 0, message: error}
-        } else {
-            console.log('OTP email sent successfully');
-            return { status : 1, message: info} 
-        }
-    });
+    let res;
+    try {
+        res = transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending OTP email', error);
+                return false;
+            } else {
+                console.log('OTP email sent successfully');
+                return true;
+            }
+        });
+    } catch (err) {
+        return false;
+    }
+    //console.log("IS email?", resp)
+    return res;
 };
 
 const generateRandomNumber = () => {

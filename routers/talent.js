@@ -32,17 +32,18 @@ app.route('/verify/:id').post(async (req, res) => {
         const otp = generateRandomNumber().toString();
         const encrypt = await Hashpassword(otp);
         const query = await pool.query("UPDATE talent SET otp = $1 WHERE talent_id = $2", [encrypt, id])
-        const resp = sendOTP(req.body.email, otp);
-        if (resp.status) {
+        const value = await sendOTP(req.body.email, otp);
+        console.log("value", value);
+        if (value) {
             response.status = 1;
-            response.message = "OTP Sent to your email successfully.";
+            response.message = "OTP sent successfully."
         } else {
             response.status = 0;
-            response.message = resp.message;
+            response.message = "OTP failed."
         }
         res.json(response);
     } catch (err) {
-        res.json({status: 0, message: err})
+        res.json({ status: 0, message: err })
         console.log(err.message);
     }
 })
@@ -62,9 +63,15 @@ app.route('/auth/:id').post(async (req, res) => {
             if (updateQuery.rowsCount > 0) {
                 response.status = 1;
                 response.message = updateQuery.rows;
+            } else {
+                response.status = 0;
+                response.message = "Updation failed.";
             }
+        } else {
+            response.status = 0;
+            response.message = "Authentication failed.";
         }
-         res.json(response);
+        res.json(response);
     } catch (err) {
         res.json({ status: 0, message: err })
         console.log(err.message);
@@ -176,6 +183,25 @@ app.route('/changepassword/:id').put(async (req, res) => {
             }
             res.json(response);
         }
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+//"GET" method to get all job details that has been accepted
+app.route('/alljobs').get(async (req, res) => {
+    try {
+        let response = {};
+        const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["accepted"]);
+        if (getRecruiterQuery.rows.length > 0) {
+            response.status = 1;
+            response.data = getRecruiterQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "NO JOBS ARE POSTED YET" }
+        }
+        res.json(response);
     } catch (err) {
         res.json({ status: 0, data: { message: err.message } })
         console.log(err.message);
