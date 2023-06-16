@@ -69,7 +69,7 @@ CREATE TABLE recruiter(
     url VARCHAR(255),
     socialmedia VARCHAR(255)
 );
-
+--change database to email primary key
 --company email, social media json object
 
 

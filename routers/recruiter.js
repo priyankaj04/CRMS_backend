@@ -3,17 +3,25 @@ const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword } = require('../src/functions');
+const accountSid = "AC898cc801200d08b25192d5143e18a19e";
+const authToken = "e0f32cb7b1f97d2d639e9a1a21501040";
+const client = require("twilio")(accountSid, authToken);
+
 
 //"POST" method for recruiter registration
 app.route('/registration').post(async (req, res) => {
     try {
         const { company_name, firstname, lastname, email, contactno, password } = req.body;
         const recruiter_id = uuidv4();
-        const checkUser = await pool.query("SELECT * FROM recruiter WHERE company_name = $1", [company_name]);
+        const checkUser = await pool.query("SELECT * FROM recruiter WHERE email = $1", [email]);
         if (checkUser.rows.length > 0) {
             res.json({ status: 0, message: "COMPANY NAME ALREADY EXISTS" });
         } else {
             const encrypt = await Hashpassword(password);
+            // client.messages
+            //     .create({ body: "Hello from Twilio", from: "+14026859986", to: "+919916954849" })
+            //     .then(message => console.log(message.sid));
+            //haihowareyouisitfine?
             const newRegistration = await pool.query("INSERT INTO recruiter (recruiter_id, company_name, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [recruiter_id, company_name, firstname, lastname, email, contactno, encrypt]);
             console.log("user is created");
             res.json({ status: 1, data: newRegistration.rows });
@@ -28,11 +36,11 @@ app.route('/registration').post(async (req, res) => {
 app.route('/login').post(async (req, res) => {
     try {
         let response = {};
-        const { company_name, password } = req.body;
-        const newLogin = await pool.query("SELECT * FROM recruiter WHERE company_name = $1", [company_name]);
+        const { email, password } = req.body;
+        const newLogin = await pool.query("SELECT * FROM recruiter WHERE email = $1", [email]);
         if (newLogin.rows.length == 0) {
             response.status = 0;
-            response.data = { message: "COMPANY DOSENT EXISTS" }
+            response.data = { message: "EMAIL DOSENT EXISTS" }
         } else {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {

@@ -65,4 +65,30 @@ const generateRandomNumber = () => {
     return randomNumber;
 };
 
+const generateOTP = () => {
+    const otpLength = 6;
+    const otp = Math.floor(100000 + Math.random() * 900000).toString().substr(0, otpLength);
+    return otp;
+};
+
+// const sendOTPSMS = (phoneNumber) => {
+//     const otp = generateOTP();
+//     const message = `Your OTP is: ${otp}`;
+
+//     twilio.messages
+//         .create({
+//             body: message,
+//             from: twilioPhoneNumber,
+//             to: phoneNumber,
+//         })
+//         .then((message) => console.log('OTP sent:', message.sid))
+//         .catch((error) => console.error('Error sending OTP:', error));
+// };
+
+// // Example usage
+// const phoneNumber = '+1234567890'; // Replace with the recipient's phone number
+// sendOTPSMS(phoneNumber);
+
+
+
 module.exports = { Hashpassword, Comparepassword, sendOTP, generateRandomNumber }
