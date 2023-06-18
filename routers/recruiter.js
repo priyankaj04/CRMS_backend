@@ -2,7 +2,7 @@ const express = require('express');
 const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
-const { Hashpassword, Comparepassword } = require('../src/functions');
+const { Hashpassword, Comparepassword, sendOTPSMS } = require('../src/functions');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
 const authToken = "e0f32cb7b1f97d2d639e9a1a21501040";
 const client = require("twilio")(accountSid, authToken);
@@ -18,9 +18,7 @@ app.route('/registration').post(async (req, res) => {
             res.json({ status: 0, message: "COMPANY NAME ALREADY EXISTS" });
         } else {
             const encrypt = await Hashpassword(password);
-            // client.messages
-            //     .create({ body: "Hello from Twilio", from: "+14026859986", to: "+919916954849" })
-            //     .then(message => console.log(message.sid));
+            
             //haihowareyouisitfine?
             const newRegistration = await pool.query("INSERT INTO recruiter (recruiter_id, company_name, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [recruiter_id, company_name, firstname, lastname, email, contactno, encrypt]);
             console.log("user is created");
@@ -57,6 +55,53 @@ app.route('/login').post(async (req, res) => {
     }
 })
 
+//"POST" method to verify email by sending otp
+app.route('/verify/:id').post(async (req, res) => {
+    const id = req.params.id;
+    console.log(req.body);
+    let response = {};
+    try {
+        const otp = generateRandomNumber().toString();
+        const encrypt = await Hashpassword(otp);
+        const query = await pool.query("UPDATE recruiter SET otp = $1 WHERE recruiter_id = $2", [encrypt, id])
+        const value = await sendOTPSMS(req.body.mobile);
+        client.messages.create({ body: "Hello from Twilio", from: "+14026859986", to: "+919916954849" }).then(message => console.log(message.sid));
+    } catch (err) {
+        res.json({ status: 0, message: err })
+        console.log(err.message);
+    }
+})
+
+//"POST" method to check opt and authorization
+app.route('/auth/:id').post(async (req, res) => {
+    const id = req.params.id;
+    console.log(req.body);
+    let response = {};
+    try {
+        const query = await pool.query("SELECT otp FROM recruiter WHERE recruiter_id= $1", [id])
+        console.log(query);
+        const auth = await Comparepassword(req.body.otp, query.rows[0].otp);
+
+        if (auth) {
+            const updateQuery = pool.query("UPDATE talent SET auth = $1, otp = $2 WHERE recruiter_id = $3", ["1", "0", id])
+            if (updateQuery.rowsCount > 0) {
+                response.status = 1;
+                response.message = updateQuery.rows;
+            } else {
+                response.status = 0;
+                response.message = "Updation failed.";
+            }
+        } else {
+            response.status = 0;
+            response.message = "Authentication failed.";
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, message: err })
+        console.log(err.message);
+    }
+})
+
 
 //----------------------------------------------------------------
 
@@ -80,7 +125,6 @@ app.route('/:id').get(async (req, res) => {
         console.log(err.message);
     }
 })
-
 
 //----------------------------------------------------------------
 
@@ -136,6 +180,26 @@ app.route('/changepassword/:id').put(async (req, res) => {
             }
             res.json(response);
         }
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+//"PUT" method for updating recruiter details
+app.route('/changepassword').put(async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE recruiter SET password = $1 WHERE email = $2`, [password, email]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = { message: "UPDATION IS SUCCESSFUL" };
+        } else {
+            response.status = 0;
+            response.data = { message: "UPDATION FAILED" };
+        }
+        res.json(response);
     } catch (err) {
         res.json({ status: 0, data: { message: err.message } })
         console.log(err.message);

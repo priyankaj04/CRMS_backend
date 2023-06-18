@@ -53,11 +53,11 @@ CREATE TABLE resume(
 CREATE TABLE recruiter(
     recruiter_id UUID NOT NULL,
     logo_url BYTEA,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    company_name VARCHAR(255) PRIMARY KEY,
+    company_name VARCHAR(255),
     description TEXT,
     industry VARCHAR(255),
     noofemployees VARCHAR(255),
@@ -67,7 +67,9 @@ CREATE TABLE recruiter(
     enable BOOL,
     datetime VARCHAR(255),
     url VARCHAR(255),
-    socialmedia VARCHAR(255)
+    socialmedia VARCHAR(255),
+    otp VARCHAR(255),
+    auth VARCHAR(255)
 );
 --change database to email primary key
 --company email, social media json object
@@ -161,3 +163,28 @@ CREATE TABLE admin(
 --     salary2_incentive_based VARCHAR(255),
 --     salary_performance_scale_incentive_based VARCHAR(255),
 --     salary_performance_scale_others_incentive_based: VARCHAR(255),
+
+
+CREATE TABLE student(
+    student_id UUID NOT NULL,
+    register_no VARCHAR(255),
+    class VARCHAR(255),
+    degree VARCHAR(255),
+    stream VARCHAR(255),
+    semester VARCHAR(255),
+    CGPA VARCHAR(255),
+    backlog_number VARCHAR(255),
+    backlog_subject VARCHAR(255),
+    email VARCHAR(255) PRIMARY KEY,
+    tenth_details JSON[],
+    twelth_details JSON[],
+    ug_details JSON[]
+);
+
+--tenth_details(school, percentage, year, boards)
+--12th_details(college, percentage, year, boards, stream)
+
+CREATE TABLE logger(
+    email VARCHAR(255) NOT NULL,
+    datetime TIMESTAMP
+);

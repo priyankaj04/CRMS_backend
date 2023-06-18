@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
+const accountSid = "AC898cc801200d08b25192d5143e18a19e";
+const authToken = "e0f32cb7b1f97d2d639e9a1a21501040";
+const twilio = require("twilio")(accountSid, authToken);
 
 const Hashpassword = async (password) => {
     try {
@@ -24,39 +26,8 @@ const Comparepassword = async (password, hashpassword) => {
 }
 
 // Create a transporter
-const transporter = nodemailer.createTransport({
-    service: 'Gmail', // e.g., 'Gmail'
-    auth: {
-        user: 'priyankaj2002o4@gmail.com',
-        pass: 'bedpfjiwqrefmles',
-    },
-});
 
-// Define a function to send the email
-const sendOTP = async (email, otp) => {
-    const mailOptions = {
-        from: 'priyankaj2002o4@gmail.com',
-        to: email,
-        subject: 'Your OTP',
-        text: `Your One-Time Password (OTP) is: ${otp}`,
-    };
-    let res;
-    try {
-        res = transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error('Error sending OTP email', error);
-                return false;
-            } else {
-                console.log('OTP email sent successfully');
-                return true;
-            }
-        });
-    } catch (err) {
-        return false;
-    }
-    //console.log("IS email?", resp)
-    return res;
-};
+
 
 const generateRandomNumber = () => {
     const min = 100000;
@@ -65,25 +36,25 @@ const generateRandomNumber = () => {
     return randomNumber;
 };
 
-const generateOTP = () => {
-    const otpLength = 6;
-    const otp = Math.floor(100000 + Math.random() * 900000).toString().substr(0, otpLength);
-    return otp;
-};
-
-// const sendOTPSMS = (phoneNumber) => {
-//     const otp = generateOTP();
-//     const message = `Your OTP is: ${otp}`;
-
-//     twilio.messages
-//         .create({
-//             body: message,
-//             from: twilioPhoneNumber,
-//             to: phoneNumber,
-//         })
-//         .then((message) => console.log('OTP sent:', message.sid))
-//         .catch((error) => console.error('Error sending OTP:', error));
+// const generateOTP = () => {
+//     const otpLength = 6;
+//     const otp = Math.floor(100000 + Math.random() * 900000).toString().substr(0, otpLength);
+//     return otp;
 // };
+
+const sendOTPSMS = (phoneNumber) => {
+    const otp = generateRandomNumber();
+    const message = `Your OTP is: ${otp}`;
+
+    twilio.messages
+        .create({
+            body: message,
+            from: twilioPhoneNumber,
+            to: phoneNumber,
+        })
+        .then((message) => console.log('OTP sent:', message.sid))
+        .catch((error) => console.error('Error sending OTP:', error));
+};
 
 // // Example usage
 // const phoneNumber = '+1234567890'; // Replace with the recipient's phone number
@@ -91,4 +62,4 @@ const generateOTP = () => {
 
 
 
-module.exports = { Hashpassword, Comparepassword, sendOTP, generateRandomNumber }
+module.exports = { Hashpassword, Comparepassword, generateRandomNumber, sendOTPSMS }

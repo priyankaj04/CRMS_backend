@@ -2,7 +2,8 @@ const express = require('express');
 const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
-const { Hashpassword, Comparepassword, sendOTP, generateRandomNumber } = require('../src/functions');
+const { Hashpassword, Comparepassword, generateRandomNumber } = require('../src/functions');
+const nodemailer = require('nodemailer');
 
 //"POST" method for student registration
 app.route('/registration').post(async (req, res) => {
@@ -23,6 +24,14 @@ app.route('/registration').post(async (req, res) => {
     }
 })
 
+const transporter = nodemailer.createTransport({
+    service: 'Gmail', // e.g., 'Gmail'
+    auth: {
+        user: 'priyankaj_r20@bmscw.edu.in',
+        pass: 'hdzcnjiifflcruhe',
+    },
+});
+//bedpfjiwqrefmles
 //"POST" method to verify email by sending otp
 app.route('/verify/:id').post(async (req, res) => {
     const id = req.params.id;
@@ -32,16 +41,27 @@ app.route('/verify/:id').post(async (req, res) => {
         const otp = generateRandomNumber().toString();
         const encrypt = await Hashpassword(otp);
         const query = await pool.query("UPDATE talent SET otp = $1 WHERE talent_id = $2", [encrypt, id])
-        const value = await sendOTP(req.body.email, otp);
-        console.log("value", value);
-        if (value) {
-            response.status = 1;
-            response.message = "OTP sent successfully."
-        } else {
-            response.status = 0;
-            response.message = "OTP failed."
-        }
-        res.json(response);
+        //const value = await sendOTP(req.body.email, otp);
+        const mailOptions = {
+            from: 'priyankaj_r20@bmscw.edu.in',
+            to: req.body.email,
+            subject: 'Your OTP',
+            text: `Your One-Time Password (OTP) is: ${otp}`,
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log(error);
+                response.status = 0;
+                response.message = "OTP failed."
+                res.json(response);
+            } else {
+                console.log('OTP email sent successfully');
+                response.status = 1;
+                response.message = "OTP sent successfully."
+                res.json(response);
+                return true;
+            }
+        });
     } catch (err) {
         res.json({ status: 0, message: err })
         console.log(err.message);
@@ -183,6 +203,26 @@ app.route('/changepassword/:id').put(async (req, res) => {
             }
             res.json(response);
         }
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+//"PUT" method for updating password by email
+app.route('/changepassword').put(async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE talent SET password = $1 WHERE email = $2`, [password, email]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = { message: "UPDATION IS SUCCESSFUL" };
+        } else {
+            response.status = 0;
+            response.data = { message: "UPDATION FAILED" };
+        }
+        res.json(response);
     } catch (err) {
         res.json({ status: 0, data: { message: err.message } })
         console.log(err.message);
