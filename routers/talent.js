@@ -15,9 +15,14 @@ app.route('/registration').post(async (req, res) => {
             res.json({ status: 0, message: "REGISTER NUMBER ALREADY EXISTS" });
         } else {
             const encrypt = await Hashpassword(password);
-            const newRegistration = await pool.query("INSERT INTO talent (talent_id, firstname, lastname, register_no, email, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [stud_id, firstname, lastname, register_no, email, encrypt]);
-            console.log("user is created");
-            res.json({ status: 1, data: newRegistration.rows });
+            const checkStudent = await pool.query("SELECT * FROM student WHERE email = $1 and register_no = $2", [email, register_no]);
+            if (checkStudent.rows.length > 0) {
+                const newRegistration = await pool.query("INSERT INTO talent (talent_id, firstname, lastname, register_no, email, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [stud_id, firstname, lastname, register_no, email, encrypt]);
+                console.log("user is created");
+                res.json({ status: 1, data: newRegistration.rows });
+            } else {
+                res.json({ status: 0, message:"STUDENT IS NOT VERIFIED" });
+            }
         }
     } catch (err) {
         console.log(err.message);

@@ -178,13 +178,15 @@ CREATE TABLE student(
     email VARCHAR(255) PRIMARY KEY,
     tenth_details JSON[],
     twelth_details JSON[],
-    ug_details JSON[]
+    ug_details JSON[],
+    created_by UUID
 );
 
 --tenth_details(school, percentage, year, boards)
 --12th_details(college, percentage, year, boards, stream)
 
 CREATE TABLE logger(
-    email VARCHAR(255) NOT NULL,
+    member VARCHAR(255) NOT NULL,
+    type VARCHAR(255),
     datetime TIMESTAMP
 );
