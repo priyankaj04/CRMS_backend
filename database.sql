@@ -167,7 +167,7 @@ CREATE TABLE admin(
 
 CREATE TABLE student(
     student_id UUID NOT NULL,
-    register_no VARCHAR(255),
+    register_no VARCHAR(255) NOT NULL,
     class VARCHAR(255),
     degree VARCHAR(255),
     stream VARCHAR(255),
@@ -175,10 +175,10 @@ CREATE TABLE student(
     CGPA VARCHAR(255),
     backlog_number VARCHAR(255),
     backlog_subject VARCHAR(255),
-    email VARCHAR(255) PRIMARY KEY,
-    tenth_details JSON[],
-    twelth_details JSON[],
-    ug_details JSON[],
+    email VARCHAR(255) PRIMARY KEY NOT NULL,
+    tenth_details JSON,
+    twelth_details JSON,
+    ug_details JSON,
     created_by UUID
 );
 

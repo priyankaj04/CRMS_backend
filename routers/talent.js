@@ -77,26 +77,20 @@ app.route('/verify/:id').post(async (req, res) => {
 app.route('/auth/:id').post(async (req, res) => {
     const id = req.params.id;
     console.log(req.body);
-    let response = {};
     try {
         const query = await pool.query("SELECT otp FROM talent WHERE talent_id= $1", [id])
-        console.log(query);
         const auth = await Comparepassword(req.body.otp, query.rows[0].otp);
-
         if (auth) {
-            const updateQuery = pool.query("UPDATE talent SET auth = $1, otp = $2 WHERE talent_id = $3", ["1", "0", id])
-            if (updateQuery.rowsCount > 0) {
-                response.status = 1;
-                response.message = updateQuery.rows;
+            const updateQuery = await pool.query("UPDATE talent SET auth = $1, otp = $2 WHERE talent_id = $3", ["1", "0", id]);
+            console.log(updateQuery);
+            if (updateQuery.rowCount > 0) {
+                res.json({ status: 1, message: updateQuery.rows })
             } else {
-                response.status = 0;
-                response.message = "Updation failed.";
+                res.json({ status: 0, message: 'Updation failed'})
             }
         } else {
-            response.status = 0;
-            response.message = "Authentication failed.";
+            res.json({ status: 0, message: 'Authentication failed.' })
         }
-        res.json(response);
     } catch (err) {
         res.json({ status: 0, message: err })
         console.log(err.message);
