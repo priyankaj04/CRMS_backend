@@ -4,7 +4,7 @@ const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = require('../src/functions');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
-const authToken = "ee7d7c5f8aaa73b229abe2d25a24fa3a";
+const authToken = "4cc1279010ff6e0efb700785ba76a0b1";
 const client = require("twilio")(accountSid, authToken);
 
 
@@ -105,7 +105,7 @@ app.route('/auth/:id').post(async (req, res) => {
             console.log("query", updateQuery)
             if (updateQuery.rowCount > 0) {
                 response.status = 1;
-                response.message = updateQuery.rows;
+                response.message = "Successful";
             } else {
                 response.status = 0;
                 response.message = "Updation failed.";

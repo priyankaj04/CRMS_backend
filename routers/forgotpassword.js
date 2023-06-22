@@ -4,7 +4,7 @@ const pool = require('../database');
 const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = require('../src/functions');
 const nodemailer = require('nodemailer');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
-const authToken = "ee7d7c5f8aaa73b229abe2d25a24fa3a";
+const authToken = "4cc1279010ff6e0efb700785ba76a0b1";
 const client = require("twilio")(accountSid, authToken);
 
 //"POST" method for forgot password sending otp
