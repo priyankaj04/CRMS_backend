@@ -2,9 +2,9 @@ const express = require('express');
 const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
-const { Hashpassword, Comparepassword, sendOTPSMS } = require('../src/functions');
+const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = require('../src/functions');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
-const authToken = "e0f32cb7b1f97d2d639e9a1a21501040";
+const authToken = "ee7d7c5f8aaa73b229abe2d25a24fa3a";
 const client = require("twilio")(accountSid, authToken);
 
 
@@ -18,15 +18,16 @@ app.route('/registration').post(async (req, res) => {
             res.json({ status: 0, message: "COMPANY NAME ALREADY EXISTS" });
         } else {
             const encrypt = await Hashpassword(password);
-            
+
             //haihowareyouisitfine?
+            //safecode = F1nnFWBqQYsMgdEHCk529Akj0KkTIcNqMmsPE-7b
             const newRegistration = await pool.query("INSERT INTO recruiter (recruiter_id, company_name, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [recruiter_id, company_name, firstname, lastname, email, contactno, encrypt]);
             console.log("user is created");
             res.json({ status: 1, data: newRegistration.rows });
         }
     } catch (err) {
         console.log(err.message);
-        res.json({status: 0, message: err.message });
+        res.json({ status: 0, message: err.message });
     }
 })
 
@@ -43,7 +44,7 @@ app.route('/login').post(async (req, res) => {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
                 response.status = 1;
-                response.data = { message: "SUCCESSFUL LOGIN", recruiter_id: newLogin.rows[0].recruiter_id}
+                response.data = { message: "SUCCESSFUL LOGIN", recruiter_id: newLogin.rows[0].recruiter_id }
             } else {
                 response.status = 0;
                 response.data = { message: "PASSWORD DID NOT MATCH" }
@@ -64,8 +65,25 @@ app.route('/verify/:id').post(async (req, res) => {
         const otp = generateRandomNumber().toString();
         const encrypt = await Hashpassword(otp);
         const query = await pool.query("UPDATE recruiter SET otp = $1 WHERE recruiter_id = $2", [encrypt, id])
-        const value = await sendOTPSMS(req.body.mobile);
-        client.messages.create({ body: "Hello from Twilio", from: "+14026859986", to: "+919916954849" }).then(message => console.log(message.sid));
+        if (query.rowCount > 0) {
+            client.messages
+                .create({
+                    body: `Welcome to Talent connect. Your OTP is ${otp}`,
+                    from: '+14026859986',
+                    to: `+91${req.body.mobile}`
+                })
+                .then(message => {
+                    if (message.sid) {
+                        res.json({ status: 1, message: "Successfull" });
+                    }
+                }
+                ).catch((err) => {
+                    console.log("ERROR: ", err);
+                    res.json({ status: 0, message: err })
+                })
+        } else {
+            res.json({ status: 0, message: "ID ERROR" });
+        }
     } catch (err) {
         res.json({ status: 0, message: err })
         console.log(err.message);
@@ -83,8 +101,9 @@ app.route('/auth/:id').post(async (req, res) => {
         const auth = await Comparepassword(req.body.otp, query.rows[0].otp);
 
         if (auth) {
-            const updateQuery = pool.query("UPDATE talent SET auth = $1, otp = $2 WHERE recruiter_id = $3", ["1", "0", id])
-            if (updateQuery.rowsCount > 0) {
+            const updateQuery = await pool.query("UPDATE recruiter SET auth = $1, otp = $2 WHERE recruiter_id = $3", ["1", "0", id])
+            console.log("query", updateQuery)
+            if (updateQuery.rowCount > 0) {
                 response.status = 1;
                 response.message = updateQuery.rows;
             } else {

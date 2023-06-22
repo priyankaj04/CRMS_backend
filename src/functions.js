@@ -49,7 +49,7 @@ const sendOTPSMS = (phoneNumber) => {
     twilio.messages
         .create({
             body: message,
-            from: twilioPhoneNumber,
+            from: "+14026859986",
             to: phoneNumber,
         })
         .then((message) => console.log('OTP sent:', message.sid))
