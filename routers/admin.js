@@ -3,6 +3,7 @@ const app = express.Router();
 const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword } = require('../src/functions');
+const moment = require('moment');
 
 //"POST" method for admin registration
 app.route('/registration').post(async (req, res) => {
@@ -16,6 +17,8 @@ app.route('/registration').post(async (req, res) => {
             } else {
                 const encrypt = await Hashpassword(password);
                 const newRegistration = await pool.query("INSERT INTO admin (admin_id, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [admin_id, firstname, lastname, email, contactno, encrypt]);
+                const datetime = moment();
+                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
                 console.log("user is created");
                 res.json({ status: 1, data: newRegistration.rows });
             }
@@ -40,6 +43,8 @@ app.route('/login').post(async (req, res) => {
         } else {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
+                const datetime = moment();
+                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
                 response.status = 1;
                 response.data = { message: "SUCCESSFUL LOGIN", admin_id: newLogin.rows[0].admin_id }
             } else {

@@ -6,6 +6,7 @@ const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = requ
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
 const authToken = "4cc1279010ff6e0efb700785ba76a0b1";
 const client = require("twilio")(accountSid, authToken);
+const moment = require('moment');
 
 
 //"POST" method for recruiter registration
@@ -22,6 +23,8 @@ app.route('/registration').post(async (req, res) => {
             //haihowareyouisitfine?
             //safecode = F1nnFWBqQYsMgdEHCk529Akj0KkTIcNqMmsPE-7b
             const newRegistration = await pool.query("INSERT INTO recruiter (recruiter_id, company_name, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [recruiter_id, company_name, firstname, lastname, email, contactno, encrypt]);
+            const datetime = moment();
+            const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
             console.log("user is created");
             res.json({ status: 1, data: newRegistration.rows });
         }
@@ -43,6 +46,8 @@ app.route('/login').post(async (req, res) => {
         } else {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
+                const datetime = moment();
+                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
                 response.status = 1;
                 response.data = { message: "SUCCESSFUL LOGIN", recruiter_id: newLogin.rows[0].recruiter_id }
             } else {

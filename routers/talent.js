@@ -4,6 +4,7 @@ const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword, generateRandomNumber } = require('../src/functions');
 const nodemailer = require('nodemailer');
+const moment = require('moment');
 
 //"POST" method for student registration
 app.route('/registration').post(async (req, res) => {
@@ -18,6 +19,8 @@ app.route('/registration').post(async (req, res) => {
             const checkStudent = await pool.query("SELECT * FROM student WHERE email = $1 and register_no = $2", [email, register_no]);
             if (checkStudent.rows.length > 0) {
                 const newRegistration = await pool.query("INSERT INTO talent (talent_id, firstname, lastname, register_no, email, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [stud_id, firstname, lastname, register_no, email, encrypt]);
+                const datetime = moment();
+                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [register_no, 'talent', datetime]);
                 console.log("user is created");
                 res.json({ status: 1, data: newRegistration.rows });
             } else {
@@ -110,6 +113,9 @@ app.route('/login').post(async (req, res) => {
         } else {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
+                const datetime = moment();
+                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [register_no, 'talent', datetime]);
+                console.log("user is created");
                 response.status = 1;
                 response.data = { message: "SUCCESSFUL LOGIN", talent_id: newLogin.rows[0].talent_id }
             } else {
