@@ -18,7 +18,7 @@ app.route('/registration').post(async (req, res) => {
                 const encrypt = await Hashpassword(password);
                 const newRegistration = await pool.query("INSERT INTO admin (admin_id, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [admin_id, firstname, lastname, email, contactno, encrypt]);
                 const datetime = moment();
-                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
+                const newLogger = await pool.query("INSERT INTO logger (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
                 console.log("user is created");
                 res.json({ status: 1, data: newRegistration.rows });
             }
@@ -44,7 +44,7 @@ app.route('/login').post(async (req, res) => {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
                 const datetime = moment();
-                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
+                const newLogger = await pool.query("INSERT INTO logger (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'admin', datetime]);
                 response.status = 1;
                 response.data = { message: "SUCCESSFUL LOGIN", admin_id: newLogin.rows[0].admin_id }
             } else {
@@ -83,8 +83,7 @@ app.route('/:id').get(async (req, res) => {
 })
 
 //"GET" method to get all job details that has to be accepted or rejected by campus officer
-app.route('/action').get(async (req, res) => {
-    const id = req.params.id;
+app.route('/action/pending').get(async (req, res) => {
     try {
         let response = {};
         const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["pending"]);
@@ -103,7 +102,7 @@ app.route('/action').get(async (req, res) => {
 })
 
 //"GET" method to get all job details that has been accepted
-app.route('/action').get(async (req, res) => {
+app.route('/action/accepted').get(async (req, res) => {
     try {
         let response = {};
         const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["accepted"]);
@@ -122,7 +121,7 @@ app.route('/action').get(async (req, res) => {
 })
 
 // "GET" method to get all job details
-app.route('/action').get(async (req, res) => {
+app.route('/action/all').get(async (req, res) => {
     try {
         let response = {};
         const getRecruiterQuery = await pool.query(`SELECT * FROM application`);

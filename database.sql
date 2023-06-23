@@ -80,6 +80,7 @@ CREATE TABLE application(
     recruiter_id UUID NOT NULL,
     opportunity_type VARCHAR(255) NOT NULL,
     job_title VARCHAR(255),
+    company_name VARCHAR(255),
     skills VARCHAR(255),
     job_type VARCHAR(255),
     number_of_openings VARCHAR(255),

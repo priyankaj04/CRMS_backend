@@ -47,7 +47,7 @@ app.route('/login').post(async (req, res) => {
             const compare = await Comparepassword(password, newLogin.rows[0].password)
             if (compare) {
                 const datetime = moment();
-                const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
+                const newLogger = await pool.query("INSERT INTO logger (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
                 response.status = 1;
                 response.data = { message: "SUCCESSFUL LOGIN", recruiter_id: newLogin.rows[0].recruiter_id }
             } else {
