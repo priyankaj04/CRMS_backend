@@ -38,8 +38,6 @@ app.route('/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};
-        const status = req.body.status;
-        console.log(req.body.status)
         const currentDate = new Date();
         const updated_at = currentDate.toISOString();
         const updateQuery = await pool.query(`UPDATE application SET status = $1, updated_at = $2 WHERE application_id = $3`, [req.body.status, updated_at, id]);
@@ -72,6 +70,51 @@ app.route('/status').get(async (req, res) => {
         if (getRecruiterQuery.rows.length > 0) {
             response.status = 1;
             response.data = getRecruiterQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Recruiter has not posted any jobs" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+// "GET" method for getting application details by application id
+app.route('/:id').get(async (req, res) => {
+    const id = req.params.id;
+    try {
+        let response = {};
+        const getApplicationQuery = await pool.query(`SELECT * FROM application WHERE application_id = $1`, [id]);
+
+        if (getApplicationQuery.rows.length > 0) {
+            response.status = 1;
+            response.data = getApplicationQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Recruiter has not posted any jobs" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+// "PUT" method to edit application details by application id
+app.route('/update/:id').put(async (req, res) => {
+    const id = req.params.id;
+    try {
+        let response = {};
+        const body = req.body;
+        const columns = Object.keys(body);
+        const values = columns.map(col => body[col]);
+        const placeholders = columns.map((col, index) => `${col} = $${index + 1}`).join(', ');
+        const updateQuery = await pool.query(`UPDATE application SET ${placeholders} WHERE application_id = $${columns.length + 1}`, [...values, id]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = updateQuery.rows
         } else {
             response.status = 0;
             response.data = { message: "Recruiter has not posted any jobs" }

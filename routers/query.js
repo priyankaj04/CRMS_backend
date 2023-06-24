@@ -6,7 +6,6 @@ const moment = require('moment');
 
 // "GET" method for getting all queries
 app.route('/allquery').get(async (req, res) => {
-    const id = req.params.id;
     try {
         let response = {};
         const getAllQueries = await pool.query(`SELECT * FROM query`);
@@ -62,9 +61,11 @@ app.route('/newquery').post(async (req, res) => {
 app.route('/replyquery/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
+        let response = {};
         const { reply } = req.body;
-        const query_id = uuidv4();
-        const updateQuery = await pool.query("UPDATE query SET reply = $1 WHERE query_id = $2", [reply, query_id]);
+        const updated_at = new Date().toISOString();
+        const status = "replied";
+        const updateQuery = await pool.query("UPDATE query SET reply = $1, updated_at = $2, status = $3 WHERE query_id = $4", [reply, updated_at, status, id]);
         if (updateQuery.rowCount > 0) {
             response.status = 1;
             response.data = { message: "UPDATION IS SUCCESSFUL" };

@@ -163,6 +163,7 @@ app.route('/:id').put(async (req, res) => {
         const columns = Object.keys(body);
         const values = columns.map(col => body[col]);
         const placeholders = columns.map((col, index) => `${col} = $${index + 1}`).join(', ');
+        console.log(placeholders);
         const updateQuery = await pool.query(`UPDATE recruiter SET ${placeholders} WHERE recruiter_id = $${columns.length + 1}`, [...values, id]);
         if (updateQuery.rowCount > 0) {
             response.status = 1;

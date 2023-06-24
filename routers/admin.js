@@ -102,10 +102,10 @@ app.route('/action/pending').get(async (req, res) => {
 })
 
 //"GET" method to get all job details that has been accepted
-app.route('/action/accepted').get(async (req, res) => {
+app.route('/action/approved').get(async (req, res) => {
     try {
         let response = {};
-        const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["accepted"]);
+        const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["approved"]);
         if (getRecruiterQuery.rows.length > 0) {
             response.status = 1;
             response.data = getRecruiterQuery.rows
