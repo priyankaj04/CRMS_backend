@@ -45,8 +45,8 @@ app.route('/email').get(async (req, res) => {
 })
 
 // "GET" method for getting studnet details by student class
-app.route('/class').get(async (req, res) => {
-    const { classes } = req.body;
+app.route('/class/:classes').get(async (req, res) => {
+    const classes = req.params.classes;
     try {
         let response = {};
         const getStudentQuery = await pool.query(`SELECT * FROM student WHERE class = $1`, [classes]);
@@ -55,7 +55,7 @@ app.route('/class').get(async (req, res) => {
             response.data = getStudentQuery.rows
         } else {
             response.status = 0;
-            response.data = { message: "No students exists with this student class" }
+            response.data = { message: "No students created from this class yet." }
         }
         res.json(response);
     } catch (err) {
@@ -92,5 +92,6 @@ app.route('/:id').put(async (req, res) => {
         console.log(err.message);
     }
 })
+
 
 module.exports = app;

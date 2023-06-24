@@ -146,7 +146,7 @@ app.route('/job/:id').patch(async (req, res) => {
     const id = req.params.id;
     try {
         let response = {};
-        console.log(req.body)
+        console.log(req.body.status)
         const currentDate = new Date();
         const formattedDate = currentDate.toISOString();
         const updateQuery = await pool.query(`UPDATE application SET status=$1 updated_at=$2 WHERE application_id = $3}`, [req.body.status, formattedDate,id]);

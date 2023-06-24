@@ -235,10 +235,11 @@ app.route('/changepassword').put(async (req, res) => {
 })
 
 //"GET" method to get all job details that has been accepted
-app.route('/alljobs').get(async (req, res) => {
+app.route('/alljobs/approved').get(async (req, res) => {
     try {
         let response = {};
-        const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ["accepted"]);
+        console.log("are you here?")
+        const getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ['approved']);
         if (getRecruiterQuery.rows.length > 0) {
             response.status = 1;
             response.data = getRecruiterQuery.rows
@@ -252,5 +253,24 @@ app.route('/alljobs').get(async (req, res) => {
         console.log(err.message);
     }
 })
+
+//'GET' all approved jobs
+// app.route('/alljobs').get(async (req, res) => {
+//     try {
+//         let response = {};
+//         const getStudentQuery = await pool.query(`SELECT * FROM application WHERE status = $1`, ['approved']);
+//         if (getStudentQuery.rows.length > 0) {
+//             response.status = 1;
+//             response.data = getStudentQuery.rows
+//         } else {
+//             response.status = 0;
+//             response.data = { message: "No jobs posted yet." }
+//         }
+//         res.json(response);
+//     } catch (err) {
+//         res.json({ status: 0, data: { message: err.message } })
+//         console.log(err.message);
+//     }
+// })
 
 module.exports = app;

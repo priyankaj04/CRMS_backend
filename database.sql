@@ -146,11 +146,11 @@ CREATE TABLE query(
     updated_at VARCHAR(255)
 );
 
-CREATE TABLE admin(
-    admin_id UUID NOT NULL,
-    userID VARCHAR(255) PRIMARY KEY,
-    password VARCHAR(255)
-);
+--CREATE TABLE admin(
+--    admin_id UUID NOT NULL,
+--    userID VARCHAR(255) PRIMARY KEY,
+--    password VARCHAR(255)
+--);
 
 --  salary_currency VARCHAR(255),
 --     salary VARCHAR(255),

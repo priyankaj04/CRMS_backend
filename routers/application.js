@@ -33,5 +33,55 @@ function generatePlaceholders(values) {
     return placeholders.join(', ');
 }
 
+//"PUT" method for Approving a new application
+app.route('/:id').put(async (req, res) => {
+    const id = req.params.id;
+    try {
+        let response = {};
+        const status = req.body.status;
+        console.log(req.body.status)
+        const currentDate = new Date();
+        const updated_at = currentDate.toISOString();
+        const updateQuery = await pool.query(`UPDATE application SET status = $1, updated_at = $2 WHERE application_id = $3`, [req.body.status, updated_at, id]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = { message: "UPDATION IS SUCCESSFUL" };
+        } else {
+            response.status = 0;
+            response.data = { message: "UPDATION FAILED" };
+        }
+        res.json(response);
+    } catch (err) {
+        console.log(err.message);
+        res.json({ status: 0, message: err.message });
+    }
+})
+
+// "GET" method for getting recruiter details by recruiter id
+app.route('/status').get(async (req, res) => {
+    const status = req.query.status;
+    const rid = req.query.rid;
+    try {
+        let response = {};
+        let getRecruiterQuery = []
+        if (status != 'all') {
+            getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE recruiter_id = $1 and status = $2`, [rid, status]);
+        } else {
+            getRecruiterQuery = await pool.query(`SELECT * FROM application WHERE recruiter_id = $1`, [rid]);
+        }
+        if (getRecruiterQuery.rows.length > 0) {
+            response.status = 1;
+            response.data = getRecruiterQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Recruiter has not posted any jobs" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
 
 module.exports = app;
