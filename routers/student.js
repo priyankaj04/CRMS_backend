@@ -25,17 +25,17 @@ app.route('/create').post(async (req, res) => {
 
 
 // "GET" method for getting student details by email
-app.route('/email').get(async (req, res) => {
-    const { email } = req.body;
+app.route('/regno').get(async (req, res) => {
+    const { regno } = req.query.regno;
     try {
         let response = {};
-        const getStudentQuery = await pool.query(`SELECT * FROM student WHERE email = $1`, [email]);
+        const getStudentQuery = await pool.query(`SELECT * FROM student WHERE register_no = $1`, [regno]);
         if (getStudentQuery.rows.length > 0) {
             response.status = 1;
             response.data = getStudentQuery.rows
         } else {
             response.status = 0;
-            response.data = { message: "No students exists with this student email" }
+            response.data = { message: "No students exists with this student register number" }
         }
         res.json(response);
     } catch (err) {

@@ -116,13 +116,16 @@ app.route('/:type').put(async (req, res) => {
     const type = req.params.type;
     try {
         let checkUser = [];
-        const encrypt = Hashpassword(req.body.password)
+        console.log("Checking users", req.body);
+        const encrypt = await Hashpassword(req.body.password);
+        console.log("type", type);
         if (type == "talent") {
             checkUser = await pool.query("UPDATE talent SET password = $1, otp = $2 WHERE email = $3", [encrypt, "0", req.body.email]);
         } else if (type == 'recruiter') {
             checkUser = await pool.query("UPDATE recruiter SET password = $1, otp = $2 WHERE email = $3", [encrypt, "0", req.body.email]);
         }
         if (checkUser.rowCount > 0) {
+
             res.json({ status: 1, message: "Password updated successfully." })
         } else {
             res.json({ status: 0, message: "Given email do not exists." })

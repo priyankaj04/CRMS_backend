@@ -215,7 +215,7 @@ app.route('/changepassword/:id').put(async (req, res) => {
 })
 
 //"PUT" method for updating password by email
-app.route('/changepassword').put(async (req, res) => {
+app.route('/change/password').put(async (req, res) => {
     const { email, password } = req.body;
     try {
         let response = {};
