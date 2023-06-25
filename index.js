@@ -11,6 +11,7 @@ const query = require('./routers/query');
 const admin = require('./routers/admin');
 const student = require('./routers/student');
 const forgotpassword = require('./routers/forgotpassword');
+const applicants = require('./routers/applicants');
 
 app.use(express.json());
 app.use(cors());
@@ -32,3 +33,4 @@ app.use('/api/query', query);
 app.use('/api/admin', admin);
 app.use('/api/student', student);
 app.use('/api/forgotpassword', forgotpassword);
+app.use('/api/applicants', applicants);

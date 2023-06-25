@@ -27,6 +27,7 @@ CREATE TABLE talent(
 
 -- profile image, url, created_At
 
+
 CREATE TABLE admin(
     admin_id UUID NOT NULL,
     email VARCHAR(255) PRIMARY KEY,

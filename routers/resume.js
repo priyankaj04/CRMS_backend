@@ -32,6 +32,7 @@ app.route('/update/:id').post(async (req, res) => {
             const values = Object.values(body);
             //const placeholders = columns.map((col, index) => `${col} = $${index + 1}`).join(', ');
             const createResume = await pool.query(`INSERT INTO resume (${columns}) VALUES (${generatePlaceholders(values)}) RETURNING *`, values);
+            const updateResumeDetils = await pool.query(`UPDATE talent SET resume_id = $1 WHERE talent_id = $2`, [body.resume_id, body.talent_id]);
             //console.log(createResume);
             response.status = 1;
             response.data = [createResume.rows[0]];

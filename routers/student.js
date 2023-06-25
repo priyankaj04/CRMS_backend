@@ -25,11 +25,11 @@ app.route('/create').post(async (req, res) => {
 
 
 // "GET" method for getting student details by email
-app.route('/regno').get(async (req, res) => {
-    const { regno } = req.query.regno;
+app.route('/email/:email').get(async (req, res) => {
+    const email = decodeURIComponent(req.params.email);
     try {
         let response = {};
-        const getStudentQuery = await pool.query(`SELECT * FROM student WHERE register_no = $1`, [regno]);
+        const getStudentQuery = await pool.query(`SELECT * FROM student WHERE email = $1`, [email]);
         if (getStudentQuery.rows.length > 0) {
             response.status = 1;
             response.data = getStudentQuery.rows
