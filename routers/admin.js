@@ -198,13 +198,13 @@ app.route('/changepassword/:id').put(async (req, res) => {
     try {
         let response = {}
         const { password, newpassword } = req.body;
-        const pass = await pool.query(`SELECT password FROM recruiter WHERE recruiter_id = $1`, [id]);
+        const pass = await pool.query(`SELECT password FROM admin WHERE admin_id = $1`, [id]);
         console.log(pass);
         if (pass.rowCount > 0) {
             const comparepass = await Comparepassword(password, pass.rows[0].password);
             if (comparepass) {
                 const hashpassword = await Hashpassword(newpassword);
-                const updatePassword = await pool.query(`UPDATE recruiter SET password = $1 WHERE recruiter_id = $2`, [hashpassword, id]);
+                const updatePassword = await pool.query(`UPDATE admin SET password = $1 WHERE admin_id = $2`, [hashpassword, id]);
                 if (updatePassword.rowCount > 0) {
                     response.status = 1;
                     response.data = { message: "UPDATION IS SUCCESSFUL" };

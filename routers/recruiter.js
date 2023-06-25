@@ -4,7 +4,7 @@ const pool = require('../database');
 const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = require('../src/functions');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
-const authToken = "4cc1279010ff6e0efb700785ba76a0b1";
+const authToken = "788889cef2103fe15062ae4c74d34c6c";
 const client = require("twilio")(accountSid, authToken);
 const moment = require('moment');
 

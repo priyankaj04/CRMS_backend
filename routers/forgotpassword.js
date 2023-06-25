@@ -4,7 +4,7 @@ const pool = require('../database');
 const { Hashpassword, Comparepassword, sendOTPSMS, generateRandomNumber } = require('../src/functions');
 const nodemailer = require('nodemailer');
 const accountSid = "AC898cc801200d08b25192d5143e18a19e";
-const authToken = "4cc1279010ff6e0efb700785ba76a0b1";
+const authToken = "788889cef2103fe15062ae4c74d34c6c";
 const client = require("twilio")(accountSid, authToken);
 
 //"POST" method for forgot password sending otp
@@ -96,7 +96,7 @@ app.route('/otp/:type').put(async (req, res) => {
         if (type == "talent") {
             checkUser = await pool.query("SELECT otp FROM talent WHERE email = $1", [req.body.email]);
         } else if (type == "recruiter") {
-            checkUser = await pool.query("SELECT otp FROM recruiter WHERE email = $1", [req.body.email]);
+            checkUser = await pool.query("SELECT otp FROM recruiter WHERE contactno = $1", [req.body.mobile]);
         }
         console.log("password ", checkUser.rows[0].otp)
         const auth = await Comparepassword(req.body.otp, checkUser.rows[0].otp)
@@ -122,7 +122,7 @@ app.route('/:type').put(async (req, res) => {
         if (type == "talent") {
             checkUser = await pool.query("UPDATE talent SET password = $1, otp = $2 WHERE email = $3", [encrypt, "0", req.body.email]);
         } else if (type == 'recruiter') {
-            checkUser = await pool.query("UPDATE recruiter SET password = $1, otp = $2 WHERE email = $3", [encrypt, "0", req.body.email]);
+            checkUser = await pool.query("UPDATE recruiter SET password = $1, otp = $2 WHERE contactno = $3", [encrypt, "0", req.body.mobile]);
         }
         if (checkUser.rowCount > 0) {
 
