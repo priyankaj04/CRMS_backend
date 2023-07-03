@@ -192,3 +192,31 @@ CREATE TABLE logger(
     type VARCHAR(255),
     datetime TIMESTAMP
 );
+
+
+CREATE TABLE interview(
+    interview_id UUID NOT NULL,
+    application_id UUID NOT NULL,
+    talent_id UUID NOT NULL,
+    slot_time VARCHAR(255),
+    slot_date VARCHAR(255),
+    link VARCHAR(255),
+    description VARCHAR(255)
+);
+
+--interview results
+
+
+CREATE TABLE subjects(
+    course VARCHAR(255) PRIMARY KEY,
+    subject JSON
+);
+
+CREATE TABLE rectification_query(
+    rec_id UUID NOT NULL,
+    query TEXT,
+    email VARCHAR(255),
+    reply TEXT,
+    created_at VARCHAR(255),
+    updated_at VARCHAR(255) 
+);

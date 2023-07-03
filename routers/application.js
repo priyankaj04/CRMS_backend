@@ -126,5 +126,70 @@ app.route('/update/:id').put(async (req, res) => {
     }
 })
 
+// "PUT" method to put saved ids
+app.route('/save/id').put(async (req, res) => {
+    const aid = req.body.aid;
+    const tid = req.body.tid;
+    try {
+        console.log(aid, tid);
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE talent SET saved = CASE WHEN saved IS NULL THEN ARRAY[$1::uuid] ELSE saved || $1::uuid END WHERE talent_id = $2`, [aid, tid]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = updateQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Updations Failed" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+// "PUT" method to put saved ids
+app.route('/save/remove').put(async (req, res) => {
+    const aid = req.body.aid;
+    const tid = req.body.tid;
+    try {
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE talent SET saved = array_remove(saved, $1::uuid) WHERE talent_id = $2`, [aid, tid]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = updateQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Updations Failed" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+// "PUT" method to edit application details by application id
+app.route('/save/application').put(async (req, res) => {
+    //const aid = req.body.aid;
+    try {
+        let response = {};
+        console.log("sdfasdfsdfsdfsdsf")
+        const updateQuery = await pool.query(`SELECT * FROM application WHERE application_id = ANY($1::uuid[]);`, [req.body.aid]);
+        console.log(updateQuery);
+        if (updateQuery.rows.length > 0) {
+            response.status = 1;
+            response.data = updateQuery.rows
+        } else {
+            response.status = 0;
+            response.data = { message: "Updations Failed" }
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
 
 module.exports = app;

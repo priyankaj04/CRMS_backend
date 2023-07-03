@@ -12,6 +12,9 @@ const admin = require('./routers/admin');
 const student = require('./routers/student');
 const forgotpassword = require('./routers/forgotpassword');
 const applicants = require('./routers/applicants');
+const interview = require('./routers/interview');
+const rec_query = require('./routers/rec_query');
+const subjects = require('./routers/subjects');
 
 app.use(express.json());
 app.use(cors());
@@ -34,3 +37,6 @@ app.use('/api/admin', admin);
 app.use('/api/student', student);
 app.use('/api/forgotpassword', forgotpassword);
 app.use('/api/applicants', applicants);
+app.use('/api/interview', interview);
+app.use('/api/recquery', rec_query);
+app.use('/api/subjects', subjects);
