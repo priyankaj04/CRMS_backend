@@ -215,7 +215,7 @@ CREATE TABLE subjects(
 CREATE TABLE rectification_query(
     rec_id UUID NOT NULL,
     query TEXT,
-    email VARCHAR(255),
+    talent_id UUID,
     reply TEXT,
     created_at VARCHAR(255),
     updated_at VARCHAR(255) 
