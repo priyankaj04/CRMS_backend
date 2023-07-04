@@ -16,7 +16,7 @@ app.route('/create/:id').post(async (req, res) => {
             const createQuery = await pool.query(`INSERT INTO rectification_query(${columns.join(', ')}) VALUES (${generatePlaceholders(values)}) RETURNING *`, values);
             res.json({ status: 1, data: createQuery.rows });
         } else {
-            res.json({ status: 0, data: "Talent id do not exists" });
+            res.json({ status: 0, message: "Talent id do not exists" });
         }
 
     } catch (err) {
@@ -73,9 +73,9 @@ app.route('/update/:id').put(async (req, res) => {
         body.updated_at = new Date();
         const updateQuery = await pool.query(`UPDATE rectification_query SET reply = $1, updated_at = $2 WHERE rec_id = $3`, [body.reply, body.updated_at, id]);
         if (updateQuery.rowCount > 0) {
-            res.json({ status: 1, data: "Successfully updated." });
+            res.json({ status: 1, message: "Successfully updated." });
         } else {
-            res.json({ status: 0, data: "Updation failed." });
+            res.json({ status: 0, message: "Updation failed." });
         }
         
     } catch (err) {
