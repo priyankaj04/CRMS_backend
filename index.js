@@ -15,6 +15,7 @@ const applicants = require('./routers/applicants');
 const interview = require('./routers/interview');
 const rec_query = require('./routers/rec_query');
 const subjects = require('./routers/subjects');
+const search = require('./routers/search');
 
 app.use(express.json());
 app.use(cors());
@@ -40,3 +41,4 @@ app.use('/api/applicants', applicants);
 app.use('/api/interview', interview);
 app.use('/api/recquery', rec_query);
 app.use('/api/subjects', subjects);
+app.use('/api/search', search);

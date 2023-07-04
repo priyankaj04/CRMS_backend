@@ -1,0 +1,5 @@
+{
+    "subject_marks": {
+        "I": [{ subject: "Mahine learning", marks: "89"}, { subject: "Artifical intelligence", marks: "90" }]
+    } 
+}

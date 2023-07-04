@@ -133,6 +133,8 @@ CREATE TABLE applicants(
     talent_id UUID NOT NULL
 );
 
+--email varchar(255)
+
 CREATE TABLE query(
     query_id UUID NOT NULL PRIMARY KEY,
     type VARCHAR(255),
@@ -182,8 +184,9 @@ CREATE TABLE student(
     twelth_details JSON,
     ug_details JSON,
     created_by UUID
+    
 );
-
+--subject_marks JSON
 --tenth_details(school, percentage, year, boards)
 --12th_details(college, percentage, year, boards, stream)
 
