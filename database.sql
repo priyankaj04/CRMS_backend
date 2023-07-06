@@ -183,10 +183,10 @@ CREATE TABLE student(
     tenth_details JSON,
     twelth_details JSON,
     ug_details JSON,
-    created_by UUID
-    
+    created_by UUID,
+    subject_marks JSON[]
 );
---subject_marks JSON
+--subject_marks JSON[],
 --tenth_details(school, percentage, year, boards)
 --12th_details(college, percentage, year, boards, stream)
 
@@ -211,8 +211,11 @@ CREATE TABLE interview(
 
 
 CREATE TABLE subjects(
-    course VARCHAR(255) PRIMARY KEY,
-    subject JSON
+    course_id UUID PRIMARY KEY,
+    course VARCHAR(255),
+    subject JSON,
+    details JSON,
+    academic_year VARCHAR(255)
 );
 
 CREATE TABLE rectification_query(

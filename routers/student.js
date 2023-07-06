@@ -6,13 +6,13 @@ const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 //"POST" method for student registration
 app.route('/create').post(async (req, res) => {
     try {
-        const { register_no, classes, degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details } = req.body;
+        const { register_no, classes, degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details, subject_marks } = req.body;
         const student_id = uuidv4();
         const checkUser = await pool.query("SELECT * FROM student WHERE register_no = $1", [register_no]);
         if (checkUser.rows.length > 0) {
             res.json({ status: 0, message: "REGISTER NUMBER ALREADY EXISTS" });
         } else {
-            const newRegistration = await pool.query("INSERT INTO student (student_id, register_no, class , degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *", [student_id, register_no, classes, degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details]);
+            const newRegistration = await pool.query("INSERT INTO student (student_id, register_no, class , degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details, subject_marks) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *", [student_id, register_no, classes, degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details, subject_marks]);
             console.log("student is created");
             res.json({ status: 1, data: newRegistration.rows });
         }
