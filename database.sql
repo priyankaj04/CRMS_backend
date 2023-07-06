@@ -226,3 +226,10 @@ CREATE TABLE rectification_query(
     created_at VARCHAR(255),
     updated_at VARCHAR(255) 
 );
+
+CREATE TABLE hod(
+    hod_id UUID NOT NULL,
+    department VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255),
+    password VARCHAR(255)
+);

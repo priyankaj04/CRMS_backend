@@ -16,14 +16,13 @@ const interview = require('./routers/interview');
 const rec_query = require('./routers/rec_query');
 const subjects = require('./routers/subjects');
 const search = require('./routers/search');
+const hod = require('./routers/hod');
 
 app.use(express.json());
 app.use(cors());
-app.use(express.json({ limit: "50mb", extended: true }))
-app.use(express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
-//app.use(bodyParser.json({ limit: "5000mb", extended: true, type: 'application/json' }));
-//app.use(bodyParser.urlencoded({ extended: true, limit: '5000mb', parameterLimit: 15000000 }));
-app.disable('x-powered-by')
+app.use(express.json({ limit: "50mb", extended: true }));
+app.use(express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
+app.disable('x-powered-by');
 
 app.listen(8000, () => {
     console.log(`Example app listening on port 8000`)
@@ -42,3 +41,4 @@ app.use('/api/interview', interview);
 app.use('/api/recquery', rec_query);
 app.use('/api/subjects', subjects);
 app.use('/api/search', search);
+app.use('/api/hod', hod)
