@@ -7,6 +7,7 @@ const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 app.route('/course/:course').get(async (req, res) => {
     const course = req.params.course;
     const year = req.query.year;
+    console.log(course, year);
     try {
         let response = {};
         const getQuery = await pool.query(`SELECT * FROM subjects WHERE course = $1 and academic_year = $2`, [course, year]);
@@ -16,7 +17,7 @@ app.route('/course/:course').get(async (req, res) => {
         } else {
             response.status = 0;
             response.data = { message: "No subjects added yet." }
-        }4
+        }
         res.json(response);
     } catch (err) {
         res.json({ status: 0, data: { message: err.message } })
@@ -33,7 +34,7 @@ app.route('/update/:course').put(async (req, res) => {
         let body = req.body;
         const getQuery = await pool.query(`SELECT * FROM subjects WHERE course = $1 and academic_year = $2`, [course, year]);
         if (getQuery.rows.length > 0) {
-            const updateQuery = await pool.query(`UPDATE subjects SET subject = $1, details = $2 WHERE course = $3 and academic_year = $4`, [body.subject, body.details ,course, year]);
+            const updateQuery = await pool.query(`UPDATE subjects SET subject = $1 WHERE course = $3 and academic_year = $4`, [body.subject ,course, year]);
             if (updateQuery.rowCount > 0) {
                 res.json({ status: 1, message: "Successfully updated." });
             } else {

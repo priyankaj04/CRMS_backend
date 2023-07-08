@@ -214,7 +214,6 @@ CREATE TABLE subjects(
     course_id UUID PRIMARY KEY,
     course VARCHAR(255),
     subject JSON,
-    details JSON,
     academic_year VARCHAR(255)
 );
 

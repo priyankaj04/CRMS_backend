@@ -44,7 +44,7 @@ app.route('/login').post(async (req, res) => {
                 const datetime = moment();
                 const newLogger = await pool.query("INSERT INTO logger (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [department, 'hod', datetime]);
                 response.status = 1;
-                response.data = { message: "SUCCESSFUL LOGIN", hod_id: newLogin.rows[0].hod_id }
+                response.data = { message: "SUCCESSFUL LOGIN", hod_id: newLogin.rows[0].hod_id, department: newLogin.rows[0].department }
             } else {
                 response.status = 0;
                 response.data = { message: "PASSWORD DID NOT MATCH" }
