@@ -44,6 +44,23 @@ app.route('/talent/:id').get(async (req, res) => {
     }
 })
 
+//'GET' method for talent to get all applicantions by their talent id in applicants section
+app.route('/').get(async (req, res) => {
+    const id = req.query.aid;
+    try {
+        const checkUser = await pool.query("SELECT * FROM applicants where applicant_id = $1", [id]);
+        if (checkUser.rows.length > 0) {
+            res.json({ status: 1, data: checkUser.rows });
+        } else {
+            res.json({ status: 0, message: 'No application found' });
+        }
+
+    } catch (err) {
+        console.log(err.message);
+        res.json({ status: 0, message: err.message });
+    }
+})
+
 //'GET' method for recruiter to get all applicants details by talent id
 app.route('/application/:id').get(async (req, res) => {
     const id = req.params.id;
@@ -91,6 +108,26 @@ app.route('/decision/:id').put(async (req, res) => {
     try {
         let response = {};
         const updateQuery = await pool.query(`UPDATE applicants SET status = $1 WHERE applicant_id = $2`, [req.body.status, id]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = { message: "UPDATION IS SUCCESSFUL" };
+        } else {
+            response.status = 0;
+            response.data = { message: "UPDATION FAILED" };
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
+//'PUT' method for applicants for selecting slots
+app.route('/updateslot/:id').put(async (req, res) => {
+    const id = req.params.id;
+    try {
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE applicants SET selected_slot_date = $1, selected_slot_timings = $2 WHERE applicant_id = $3`, [req.body.slotdate, req.body.slottime, id]);
         if (updateQuery.rowCount > 0) {
             response.status = 1;
             response.data = { message: "UPDATION IS SUCCESSFUL" };

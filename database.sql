@@ -130,7 +130,9 @@ CREATE TABLE applicants(
     remarks TEXT,
     pitching TEXT,
     resume_id UUID NOT NULL,
-    talent_id UUID NOT NULL
+    talent_id UUID NOT NULL,
+    selected_slot_date VARCHAR(255),
+    selected_slot_timings VARCHAR(255)
 );
 
 --email varchar(255)
@@ -201,10 +203,12 @@ CREATE TABLE interview(
     interview_id UUID NOT NULL,
     application_id UUID NOT NULL,
     talent_id UUID NOT NULL,
-    slot_time VARCHAR(255),
-    slot_date VARCHAR(255),
+    slot_timings VARCHAR(255),
+    slot_time VARCHAR(255)[],
+    slot_dates VARCHAR(255)[],
     link VARCHAR(255),
-    description VARCHAR(255)
+    description VARCHAR(255),
+    slots JSON[]
 );
 
 --interview results

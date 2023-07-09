@@ -7,15 +7,15 @@ const moment = require('moment');
 
 //"POST" method for interview details
 app.route('/create').post(async (req, res) => {
-    const { application_id, talent_id, slot_time, slot_date, link, description } = req.body;
+    const { application_id, talent_id, slot_timings, slot_dates, link, description, slot_time, slots } = req.body;
     try {
         const interview_id = uuidv4();
-        const newQuery = await pool.query("INSERT INTO interview (interview_id, application_id, talent_id , slot_time, slot_date, link, description) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [interview_id, application_id, talent_id, slot_time, slot_date, link, description]);
+        const newQuery = await pool.query("INSERT INTO interview (interview_id, application_id, talent_id , slot_timings, slot_dates, link, description, slot_time, slots) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *", [interview_id, application_id, talent_id, slot_timings, slot_dates, link, description, slot_time, slots]);
         if (newQuery.rows.length > 0) {
             console.log("interview is created");
             res.json({ status: 1, data: newQuery.rows });
         } else {
-            res.json({ status: 0, message: "Insertion failed." });
+            res.json({ status: 0, message: "Insertion failed." }); 
         }
 
     } catch (err) {
@@ -32,7 +32,7 @@ app.route('/getdetails').get(async (req, res) => {
             //console.log("interview is created");
             res.json({ status: 1, data: selectQuery.rows });
         } else {
-            res.json({ status: 0, message: "Insertion failed." });
+            res.json({ status: 0, message: "No Data." });
         }
 
     } catch (err) {
@@ -40,7 +40,7 @@ app.route('/getdetails').get(async (req, res) => {
     }
 })
 
-//'GET' method to get interview details by application id and talent_id
+//'PUT' method to edit interview details by interview id
 app.route('/update/:id').put(async (req, res) => {
     const id = req.params.id;
     try {
