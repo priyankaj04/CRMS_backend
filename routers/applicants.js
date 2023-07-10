@@ -122,6 +122,25 @@ app.route('/decision/:id').put(async (req, res) => {
     }
 })
 
+//'PUT' method for recruiters to instantly accept or reject applicants 
+app.route('/multidecision').put(async (req, res) => {
+    try {
+        let response = {};
+        const updateQuery = await pool.query(`UPDATE applicants SET status = $1 WHERE applicant_id =ANY($2::uuid[])`, [req.body.status, req.body.id]);
+        if (updateQuery.rowCount > 0) {
+            response.status = 1;
+            response.data = { message: "UPDATION IS SUCCESSFUL" };
+        } else {
+            response.status = 0;
+            response.data = { message: "UPDATION FAILED" };
+        }
+        res.json(response);
+    } catch (err) {
+        res.json({ status: 0, data: { message: err.message } })
+        console.log(err.message);
+    }
+})
+
 //'PUT' method for applicants for selecting slots
 app.route('/updateslot/:id').put(async (req, res) => {
     const id = req.params.id;
