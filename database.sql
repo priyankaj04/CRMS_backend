@@ -128,6 +128,7 @@ CREATE TABLE applicants(
     status VARCHAR(255),
     result VARCHAR(255),
     remarks TEXT,
+    registerno VARCHAR(255),
     pitching TEXT,
     resume_id UUID NOT NULL,
     talent_id UUID NOT NULL,

@@ -8,14 +8,14 @@ const moment = require('moment');
 //'POST' method for applicants to apply for the job
 app.route('/pitch').post(async (req, res) => {
     try {
-        const { application_id, pitching, resume_id, talent_id } = req.body;
+        const { application_id, pitching, resume_id, talent_id, registerno } = req.body;
         const applicant_id = uuidv4();
         const status = 'under review';
         const checkUser = await pool.query("SELECT * FROM applicants WHERE application_id = $1 and talent_id = $2", [application_id, talent_id]);
         if (checkUser.rows.length > 0) {
             res.json({ status: 0, message: "Applicant already applied to this application" });
         } else {
-            const newRegistration = await pool.query("INSERT INTO applicants (applicant_id, application_id, status, pitching, resume_id, talent_id ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [applicant_id, application_id, status, pitching, resume_id, talent_id]);
+            const newRegistration = await pool.query("INSERT INTO applicants (applicant_id, application_id, status, pitching, resume_id, talent_id, registerno ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [applicant_id, application_id, status, pitching, resume_id, talent_id, registerno]);
             console.log("applicant is applied");
             res.json({ status: 1, data: newRegistration.rows });
         }
@@ -49,6 +49,23 @@ app.route('/').get(async (req, res) => {
     const id = req.query.aid;
     try {
         const checkUser = await pool.query("SELECT * FROM applicants where applicant_id = $1", [id]);
+        if (checkUser.rows.length > 0) {
+            res.json({ status: 1, data: checkUser.rows });
+        } else {
+            res.json({ status: 0, message: 'No application found' });
+        }
+
+    } catch (err) {
+        console.log(err.message);
+        res.json({ status: 0, message: err.message });
+    }
+})
+
+// 'GET' method for talent to get all applicants for that application
+app.route('/application/:id').get(async (req, res) => {
+    const id = req.params.id;
+    try {
+        const checkUser = await pool.query("SELECT * FROM applicants where application_id = $1", [id]);
         if (checkUser.rows.length > 0) {
             res.json({ status: 1, data: checkUser.rows });
         } else {
@@ -158,6 +175,30 @@ app.route('/updateslot/:id').put(async (req, res) => {
     } catch (err) {
         res.json({ status: 0, data: { message: err.message } })
         console.log(err.message);
+    }
+})
+
+// SELECT s.*
+//     FROM student s
+// JOIN talent t ON s.email = t.email
+// WHERE t.talent_id IN(1, 2, 3, ...)
+//'PUT' method for applicants for selecting slots
+app.route('/student').put(async (req, res) => {
+    const reqbody = req.body.ids;
+    try {
+        const updateQuery = await pool.query(`SELECT s.*
+FROM student s
+JOIN talent t ON s.email = t.email
+WHERE t.talent_id = ANY ($1::uuid[])`, [reqbody]);
+        if (updateQuery.rows.length > 0) {
+            res.json({ status: 1, data: updateQuery.rows });
+        } else {
+            res.json({ status: 0, message: 'No students found' });
+        }
+
+    } catch (err) {
+        console.log(err.message);
+        res.json({ status: 0, message: err.message });
     }
 })
 
