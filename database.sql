@@ -25,7 +25,7 @@ CREATE TABLE talent(
     auth VARCHAR(255)
 );
 
--- profile image, url, created_At
+-- profile image - TEXT, url, created_At
 
 
 CREATE TABLE admin(
