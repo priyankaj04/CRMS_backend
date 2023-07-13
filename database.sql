@@ -2,7 +2,7 @@ CREATE DATABASE crms;
 
 CREATE TABLE talent(
     talent_id UUID NOT NULL,
-    profile_url BYTEA,
+    profile_url TEXT,
     email VARCHAR(255) NOT NULL,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
@@ -187,7 +187,8 @@ CREATE TABLE student(
     twelth_details JSON,
     ug_details JSON,
     created_by UUID,
-    subject_marks JSON[]
+    subject_marks JSON[],
+    batch VARCHAR(255)
 );
 --subject_marks JSON[],
 --tenth_details(school, percentage, year, boards)
@@ -222,18 +223,12 @@ CREATE TABLE subjects(
     academic_year VARCHAR(255)
 );
 
-CREATE TABLE rectification_query(
-    rec_id UUID NOT NULL,
-    query TEXT,
-    talent_id UUID,
-    reply TEXT,
-    created_at VARCHAR(255),
-    updated_at VARCHAR(255) 
-);
-
 CREATE TABLE hod(
     hod_id UUID NOT NULL,
     department VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255),
     password VARCHAR(255)
 );
+
+
+--12 tables
