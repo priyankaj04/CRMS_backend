@@ -161,9 +161,13 @@ app.route('/multidecision').put(async (req, res) => {
 //'PUT' method for applicants for selecting slots
 app.route('/updateslot/:id').put(async (req, res) => {
     const id = req.params.id;
+    const tid = req.query.tid;
     try {
+        console.log("tid", id, tid);
         let response = {};
-        const updateQuery = await pool.query(`UPDATE applicants SET selected_slot_date = $1, selected_slot_timings = $2 WHERE applicant_id = $3`, [req.body.slotdate, req.body.slottime, id]);
+        const reqbody = req.body
+        const updateQuery = await pool.query(`UPDATE applicants SET selected_slot_date = $1, selected_slot_timings = $2 WHERE application_id = $3 and talent_id = $4`, [reqbody.slotdate, reqbody.slottime, id, tid]);
+        console.log(updateQuery);
         if (updateQuery.rowCount > 0) {
             response.status = 1;
             response.data = { message: "UPDATION IS SUCCESSFUL" };

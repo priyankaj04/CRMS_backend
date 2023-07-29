@@ -24,7 +24,7 @@ app.route('/registration').post(async (req, res) => {
             //safecode = F1nnFWBqQYsMgdEHCk529Akj0KkTIcNqMmsPE-7b
             const newRegistration = await pool.query("INSERT INTO recruiter (recruiter_id, company_name, firstname, lastname, email, contactno, password ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [recruiter_id, company_name, firstname, lastname, email, contactno, encrypt]);
             const datetime = moment();
-            const newLogger = await pool.query("INSERT INTO recruiter (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
+            const newLogger = await pool.query("INSERT INTO logger (member, type, datetime ) VALUES ($1, $2, $3) RETURNING *", [email, 'recruiter', datetime]);
             console.log("user is created");
             res.json({ status: 1, data: newRegistration.rows });
         }
@@ -73,7 +73,7 @@ app.route('/verify/:id').post(async (req, res) => {
         if (query.rowCount > 0) {
             client.messages
                 .create({
-                    body: `Welcome to Talent connect. Your OTP is ${otp}`,
+                    body: `\n\nYour One-Time Password (OTP) is: ${otp}. \n\n🎉🎊Welcome to Talent Connect!🎉🎊\n\n\n If you have any queries before using our application or any information to pass on to us, we are here for you. Mail us on priyankaj_r20@bmscw.edu.in, and reach to you in no-time. Thank you for using our app! We are happy to see you here.\n\n\n Once again, Welcome to Talent Connect Community!!!🎉🎊`,
                     from: '+14026859986',
                     to: `+91${req.body.mobile}`
                 })

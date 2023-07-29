@@ -15,9 +15,9 @@ app.route('/create').post(async (req, res) => {
             console.log("interview is created");
             res.json({ status: 1, data: newQuery.rows });
         } else {
+            console.log("failed");
             res.json({ status: 0, message: "Insertion failed." }); 
         }
-
     } catch (err) {
         console.log(err.message);
     }

@@ -1,0 +1,504 @@
+<svg width="616" height="743" viewBox="0 0 462 557.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="translate(86.5,1525) scale(1)">
+<title>G</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-2794 229,-2794 229,4 -4,4"></polygon>
+<!-- talent -->
+<g id="node1" class="node" style="opacity: 1;">
+<title>talent</title>
+<polygon fill="#232d95" stroke="transparent" points="12.5,-360 12.5,-378 212.5,-378 212.5,-360 12.5,-360"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-360 12.5,-378 212.5,-378 212.5,-360 12.5,-360"></polygon>
+<text text-anchor="start" x="15.5" y="-367" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">talent</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-342 12.5,-360 212.5,-360 212.5,-342 12.5,-342"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-342 12.5,-360 212.5,-360 212.5,-342 12.5,-342"></polygon>
+<text text-anchor="start" x="15.5" y="-348" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;talent_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-324 12.5,-342 212.5,-342 212.5,-324 12.5,-324"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-324 12.5,-342 212.5,-342 212.5,-324 12.5,-324"></polygon>
+<text text-anchor="start" x="15.5" y="-330" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;profile_url TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-306 12.5,-324 212.5,-324 212.5,-306 12.5,-306"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-306 12.5,-324 212.5,-324 212.5,-306 12.5,-306"></polygon>
+<text text-anchor="start" x="15.5" y="-312" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;firstname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-288 12.5,-306 212.5,-306 212.5,-288 12.5,-288"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-288 12.5,-306 212.5,-306 212.5,-288 12.5,-288"></polygon>
+<text text-anchor="start" x="15.5" y="-294" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lastname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-270 12.5,-288 212.5,-288 212.5,-270 12.5,-270"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-270 12.5,-288 212.5,-288 212.5,-270 12.5,-270"></polygon>
+<text text-anchor="start" x="15.5" y="-276" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-252 12.5,-270 212.5,-270 212.5,-252 12.5,-252"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-252 12.5,-270 212.5,-270 212.5,-252 12.5,-252"></polygon>
+<text text-anchor="start" x="15.41" y="-259" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="30.69" y="-259" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="37.69" y="-259" font-family="opensans" font-size="10.00" fill="white"> register_no VARCHAR(255 &#160;NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-234 12.5,-252 212.5,-252 212.5,-234 12.5,-234"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-234 12.5,-252 212.5,-252 212.5,-234 12.5,-234"></polygon>
+<text text-anchor="start" x="15.5" y="-240" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;semester VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-216 12.5,-234 212.5,-234 212.5,-216 12.5,-216"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-216 12.5,-234 212.5,-234 212.5,-216 12.5,-216"></polygon>
+<text text-anchor="start" x="15.5" y="-222" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;branch VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-198 12.5,-216 212.5,-216 212.5,-198 12.5,-198"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-198 12.5,-216 212.5,-216 212.5,-198 12.5,-198"></polygon>
+<text text-anchor="start" x="15.5" y="-204" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fieldofexpertise VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-180 12.5,-198 212.5,-198 212.5,-180 12.5,-180"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-180 12.5,-198 212.5,-198 212.5,-180 12.5,-180"></polygon>
+<text text-anchor="start" x="15.5" y="-186" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;about VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-162 12.5,-180 212.5,-180 212.5,-162 12.5,-162"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-162 12.5,-180 212.5,-180 212.5,-162 12.5,-162"></polygon>
+<text text-anchor="start" x="15.5" y="-168" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;college VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-144 12.5,-162 212.5,-162 212.5,-144 12.5,-144"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-144 12.5,-162 212.5,-162 212.5,-144 12.5,-144"></polygon>
+<text text-anchor="start" x="15.5" y="-150" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;contactno VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-126 12.5,-144 212.5,-144 212.5,-126 12.5,-126"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-126 12.5,-144 212.5,-144 212.5,-126 12.5,-126"></polygon>
+<text text-anchor="start" x="15.5" y="-132" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;whatappno VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-108 12.5,-126 212.5,-126 212.5,-108 12.5,-108"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-108 12.5,-126 212.5,-126 212.5,-108 12.5,-108"></polygon>
+<text text-anchor="start" x="15.5" y="-114" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;enable BOOL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-90 12.5,-108 212.5,-108 212.5,-90 12.5,-90"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-90 12.5,-108 212.5,-108 212.5,-90 12.5,-90"></polygon>
+<text text-anchor="start" x="15.5" y="-96" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;saved VARCHAR(255) [ ]</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-72 12.5,-90 212.5,-90 212.5,-72 12.5,-72"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-72 12.5,-90 212.5,-90 212.5,-72 12.5,-72"></polygon>
+<text text-anchor="start" x="15.5" y="-78" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;datetime VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-54 12.5,-72 212.5,-72 212.5,-54 12.5,-54"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-54 12.5,-72 212.5,-72 212.5,-54 12.5,-54"></polygon>
+<text text-anchor="start" x="15.5" y="-60" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;resume_id UUID</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-36 12.5,-54 212.5,-54 212.5,-36 12.5,-36"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-36 12.5,-54 212.5,-54 212.5,-36 12.5,-36"></polygon>
+<text text-anchor="start" x="15.5" y="-42" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;city VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-18 12.5,-36 212.5,-36 212.5,-18 12.5,-18"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-18 12.5,-36 212.5,-36 212.5,-18 12.5,-18"></polygon>
+<text text-anchor="start" x="15.5" y="-24" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;otp VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,0 12.5,-18 212.5,-18 212.5,0 12.5,0"></polygon>
+<polygon fill="none" stroke="white" points="12.5,0 12.5,-18 212.5,-18 212.5,0 12.5,0"></polygon>
+<text text-anchor="start" x="15.5" y="-6" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth VARCHAR(255)</text>
+</g>
+<!-- admin -->
+<g id="node2" class="node" style="opacity: 1;">
+<title>admin</title>
+<polygon fill="#232d95" stroke="transparent" points="15.5,-504 15.5,-522 210.5,-522 210.5,-504 15.5,-504"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-504 15.5,-522 210.5,-522 210.5,-504 15.5,-504"></polygon>
+<text text-anchor="start" x="18.5" y="-511" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">admin</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-486 15.5,-504 210.5,-504 210.5,-486 15.5,-486"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-486 15.5,-504 210.5,-504 210.5,-486 15.5,-486"></polygon>
+<text text-anchor="start" x="18.5" y="-492" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;admin_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-468 15.5,-486 210.5,-486 210.5,-468 15.5,-468"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-468 15.5,-486 210.5,-486 210.5,-468 15.5,-468"></polygon>
+<text text-anchor="start" x="18.5" y="-475" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="33.78" y="-475" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="40.78" y="-475" font-family="opensans" font-size="10.00" fill="white"> email VARCHAR(255</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-450 15.5,-468 210.5,-468 210.5,-450 15.5,-450"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-450 15.5,-468 210.5,-468 210.5,-450 15.5,-450"></polygon>
+<text text-anchor="start" x="18.5" y="-456" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;firstname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-432 15.5,-450 210.5,-450 210.5,-432 15.5,-432"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-432 15.5,-450 210.5,-450 210.5,-432 15.5,-432"></polygon>
+<text text-anchor="start" x="18.5" y="-438" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lastname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-414 15.5,-432 210.5,-432 210.5,-414 15.5,-414"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-414 15.5,-432 210.5,-432 210.5,-414 15.5,-414"></polygon>
+<text text-anchor="start" x="18.44" y="-420" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;contactno VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-396 15.5,-414 210.5,-414 210.5,-396 15.5,-396"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-396 15.5,-414 210.5,-414 210.5,-396 15.5,-396"></polygon>
+<text text-anchor="start" x="18.5" y="-402" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password VARCHAR(255) NOT NULL</text>
+</g>
+<!-- resume -->
+<g id="node3" class="node" style="opacity: 1;">
+<title>resume</title>
+<polygon fill="#232d95" stroke="transparent" points="35.5,-594 35.5,-612 189.5,-612 189.5,-594 35.5,-594"></polygon>
+<polygon fill="none" stroke="white" points="35.5,-594 35.5,-612 189.5,-612 189.5,-594 35.5,-594"></polygon>
+<text text-anchor="start" x="38.5" y="-601" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">resume</text>
+<polygon fill="#404040" stroke="transparent" points="35.5,-576 35.5,-594 189.5,-594 189.5,-576 35.5,-576"></polygon>
+<polygon fill="none" stroke="white" points="35.5,-576 35.5,-594 189.5,-594 189.5,-576 35.5,-576"></polygon>
+<text text-anchor="start" x="38.19" y="-583" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="53.47" y="-583" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="60.47" y="-583" font-family="opensans" font-size="10.00" fill="white"> resume_id UUID &#160;NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="35.5,-558 35.5,-576 189.5,-576 189.5,-558 35.5,-558"></polygon>
+<polygon fill="none" stroke="white" points="35.5,-558 35.5,-576 189.5,-576 189.5,-558 35.5,-558"></polygon>
+<text text-anchor="start" x="38.5" y="-564" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;talent_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="35.5,-540 35.5,-558 189.5,-558 189.5,-540 35.5,-540"></polygon>
+<polygon fill="none" stroke="white" points="35.5,-540 35.5,-558 189.5,-558 189.5,-540 35.5,-540"></polygon>
+<text text-anchor="start" x="38.5" y="-546" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;datetime VARCHAR(255)</text>
+</g>
+<!-- recruiter -->
+<g id="node4" class="node" style="opacity: 1;">
+<title>recruiter</title>
+<polygon fill="#232d95" stroke="transparent" points="15.5,-972 15.5,-990 209.5,-990 209.5,-972 15.5,-972"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-972 15.5,-990 209.5,-990 209.5,-972 15.5,-972"></polygon>
+<text text-anchor="start" x="18.5" y="-979" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">recruiter</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-954 15.5,-972 209.5,-972 209.5,-954 15.5,-954"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-954 15.5,-972 209.5,-972 209.5,-954 15.5,-954"></polygon>
+<text text-anchor="start" x="18.5" y="-960" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;recruiter_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-936 15.5,-954 209.5,-954 209.5,-936 15.5,-936"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-936 15.5,-954 209.5,-954 209.5,-936 15.5,-936"></polygon>
+<text text-anchor="start" x="18.5" y="-942" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;logo_url BYTEA</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-918 15.5,-936 209.5,-936 209.5,-918 15.5,-918"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-918 15.5,-936 209.5,-936 209.5,-918 15.5,-918"></polygon>
+<text text-anchor="start" x="18.5" y="-925" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="33.78" y="-925" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="40.78" y="-925" font-family="opensans" font-size="10.00" fill="white"> email VARCHAR(255 NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-900 15.5,-918 209.5,-918 209.5,-900 15.5,-900"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-900 15.5,-918 209.5,-918 209.5,-900 15.5,-900"></polygon>
+<text text-anchor="start" x="18.5" y="-906" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;firstname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-882 15.5,-900 209.5,-900 209.5,-882 15.5,-882"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-882 15.5,-900 209.5,-900 209.5,-882 15.5,-882"></polygon>
+<text text-anchor="start" x="18.5" y="-888" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;lastname VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-864 15.5,-882 209.5,-882 209.5,-864 15.5,-864"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-864 15.5,-882 209.5,-882 209.5,-864 15.5,-864"></polygon>
+<text text-anchor="start" x="18.5" y="-870" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-846 15.5,-864 209.5,-864 209.5,-846 15.5,-846"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-846 15.5,-864 209.5,-864 209.5,-846 15.5,-846"></polygon>
+<text text-anchor="start" x="18.5" y="-852" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;company_name VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-828 15.5,-846 209.5,-846 209.5,-828 15.5,-828"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-828 15.5,-846 209.5,-846 209.5,-828 15.5,-828"></polygon>
+<text text-anchor="start" x="18.5" y="-834" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;description TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-810 15.5,-828 209.5,-828 209.5,-810 15.5,-810"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-810 15.5,-828 209.5,-828 209.5,-810 15.5,-810"></polygon>
+<text text-anchor="start" x="18.5" y="-816" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;industry VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-792 15.5,-810 209.5,-810 209.5,-792 15.5,-792"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-792 15.5,-810 209.5,-810 209.5,-792 15.5,-792"></polygon>
+<text text-anchor="start" x="18.5" y="-798" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;noofemployees VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-774 15.5,-792 209.5,-792 209.5,-774 15.5,-774"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-774 15.5,-792 209.5,-792 209.5,-774 15.5,-774"></polygon>
+<text text-anchor="start" x="18.5" y="-780" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;city VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-756 15.5,-774 209.5,-774 209.5,-756 15.5,-756"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-756 15.5,-774 209.5,-774 209.5,-756 15.5,-756"></polygon>
+<text text-anchor="start" x="18.5" y="-762" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;address VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-738 15.5,-756 209.5,-756 209.5,-738 15.5,-738"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-738 15.5,-756 209.5,-756 209.5,-738 15.5,-738"></polygon>
+<text text-anchor="start" x="18.5" y="-744" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;contactno VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-720 15.5,-738 209.5,-738 209.5,-720 15.5,-720"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-720 15.5,-738 209.5,-738 209.5,-720 15.5,-720"></polygon>
+<text text-anchor="start" x="18.5" y="-726" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;enable BOOL</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-702 15.5,-720 209.5,-720 209.5,-702 15.5,-702"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-702 15.5,-720 209.5,-720 209.5,-702 15.5,-702"></polygon>
+<text text-anchor="start" x="18.5" y="-708" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;datetime VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-684 15.5,-702 209.5,-702 209.5,-684 15.5,-684"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-684 15.5,-702 209.5,-702 209.5,-684 15.5,-684"></polygon>
+<text text-anchor="start" x="18.5" y="-690" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;url VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-666 15.5,-684 209.5,-684 209.5,-666 15.5,-666"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-666 15.5,-684 209.5,-684 209.5,-666 15.5,-666"></polygon>
+<text text-anchor="start" x="18.5" y="-672" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;socialmedia VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-648 15.5,-666 209.5,-666 209.5,-648 15.5,-648"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-648 15.5,-666 209.5,-666 209.5,-648 15.5,-648"></polygon>
+<text text-anchor="start" x="18.5" y="-654" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;otp VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="15.5,-630 15.5,-648 209.5,-648 209.5,-630 15.5,-630"></polygon>
+<polygon fill="none" stroke="white" points="15.5,-630 15.5,-648 209.5,-648 209.5,-630 15.5,-630"></polygon>
+<text text-anchor="start" x="18.5" y="-636" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth VARCHAR(255)</text>
+</g>
+<!-- application -->
+<g id="node5" class="node" style="opacity: 1;">
+<title>application</title>
+<polygon fill="#232d95" stroke="transparent" points="0.5,-1674 0.5,-1692 225.5,-1692 225.5,-1674 0.5,-1674"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1674 0.5,-1692 225.5,-1692 225.5,-1674 0.5,-1674"></polygon>
+<text text-anchor="start" x="3.5" y="-1681" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">application</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1656 0.5,-1674 225.5,-1674 225.5,-1656 0.5,-1656"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1656 0.5,-1674 225.5,-1674 225.5,-1656 0.5,-1656"></polygon>
+<text text-anchor="start" x="3.5" y="-1662" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;application_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1638 0.5,-1656 225.5,-1656 225.5,-1638 0.5,-1638"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1638 0.5,-1656 225.5,-1656 225.5,-1638 0.5,-1638"></polygon>
+<text text-anchor="start" x="3.44" y="-1644" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;opportunity_type VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1620 0.5,-1638 225.5,-1638 225.5,-1620 0.5,-1620"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1620 0.5,-1638 225.5,-1638 225.5,-1620 0.5,-1620"></polygon>
+<text text-anchor="start" x="3.5" y="-1626" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;job_title VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1602 0.5,-1620 225.5,-1620 225.5,-1602 0.5,-1602"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1602 0.5,-1620 225.5,-1620 225.5,-1602 0.5,-1602"></polygon>
+<text text-anchor="start" x="3.5" y="-1608" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;company_name VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1584 0.5,-1602 225.5,-1602 225.5,-1584 0.5,-1584"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1584 0.5,-1602 225.5,-1602 225.5,-1584 0.5,-1584"></polygon>
+<text text-anchor="start" x="3.5" y="-1590" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;skills VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1566 0.5,-1584 225.5,-1584 225.5,-1566 0.5,-1566"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1566 0.5,-1584 225.5,-1584 225.5,-1566 0.5,-1566"></polygon>
+<text text-anchor="start" x="3.5" y="-1572" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;job_type VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1548 0.5,-1566 225.5,-1566 225.5,-1548 0.5,-1548"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1548 0.5,-1566 225.5,-1566 225.5,-1548 0.5,-1548"></polygon>
+<text text-anchor="start" x="3.5" y="-1554" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;number_of_openings VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1530 0.5,-1548 225.5,-1548 225.5,-1530 0.5,-1530"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1530 0.5,-1548 225.5,-1548 225.5,-1530 0.5,-1530"></polygon>
+<text text-anchor="start" x="3.5" y="-1536" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;job_start_date VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1512 0.5,-1530 225.5,-1530 225.5,-1512 0.5,-1512"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1512 0.5,-1530 225.5,-1530 225.5,-1512 0.5,-1512"></polygon>
+<text text-anchor="start" x="3.5" y="-1518" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ctc1 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1494 0.5,-1512 225.5,-1512 225.5,-1494 0.5,-1494"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1494 0.5,-1512 225.5,-1512 225.5,-1494 0.5,-1494"></polygon>
+<text text-anchor="start" x="3.5" y="-1500" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ctc2 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1476 0.5,-1494 225.5,-1494 225.5,-1476 0.5,-1476"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1476 0.5,-1494 225.5,-1494 225.5,-1476 0.5,-1476"></polygon>
+<text text-anchor="start" x="3.5" y="-1482" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;job_description TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1458 0.5,-1476 225.5,-1476 225.5,-1458 0.5,-1458"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1458 0.5,-1476 225.5,-1476 225.5,-1458 0.5,-1458"></polygon>
+<text text-anchor="start" x="3.5" y="-1464" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;preference VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1440 0.5,-1458 225.5,-1458 225.5,-1440 0.5,-1440"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1440 0.5,-1458 225.5,-1458 225.5,-1440 0.5,-1440"></polygon>
+<text text-anchor="start" x="3.5" y="-1446" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;stipend_type VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1422 0.5,-1440 225.5,-1440 225.5,-1422 0.5,-1422"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1422 0.5,-1440 225.5,-1440 225.5,-1422 0.5,-1422"></polygon>
+<text text-anchor="start" x="3.5" y="-1428" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;stipend_amt VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1404 0.5,-1422 225.5,-1422 225.5,-1404 0.5,-1404"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1404 0.5,-1422 225.5,-1422 225.5,-1404 0.5,-1404"></polygon>
+<text text-anchor="start" x="3.5" y="-1410" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;stipend_per VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1386 0.5,-1404 225.5,-1404 225.5,-1386 0.5,-1386"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1386 0.5,-1404 225.5,-1404 225.5,-1386 0.5,-1386"></polygon>
+<text text-anchor="start" x="3.5" y="-1392" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks1 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1368 0.5,-1386 225.5,-1386 225.5,-1368 0.5,-1368"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1368 0.5,-1386 225.5,-1386 225.5,-1368 0.5,-1368"></polygon>
+<text text-anchor="start" x="3.5" y="-1374" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks2 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1350 0.5,-1368 225.5,-1368 225.5,-1350 0.5,-1350"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1350 0.5,-1368 225.5,-1368 225.5,-1350 0.5,-1350"></polygon>
+<text text-anchor="start" x="3.5" y="-1356" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks3 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1332 0.5,-1350 225.5,-1350 225.5,-1332 0.5,-1332"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1332 0.5,-1350 225.5,-1350 225.5,-1332 0.5,-1332"></polygon>
+<text text-anchor="start" x="3.5" y="-1338" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks4 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1314 0.5,-1332 225.5,-1332 225.5,-1314 0.5,-1314"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1314 0.5,-1332 225.5,-1332 225.5,-1314 0.5,-1314"></polygon>
+<text text-anchor="start" x="3.5" y="-1320" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks5 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1296 0.5,-1314 225.5,-1314 225.5,-1296 0.5,-1296"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1296 0.5,-1314 225.5,-1314 225.5,-1296 0.5,-1296"></polygon>
+<text text-anchor="start" x="3.5" y="-1302" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks6 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1278 0.5,-1296 225.5,-1296 225.5,-1278 0.5,-1278"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1278 0.5,-1296 225.5,-1296 225.5,-1278 0.5,-1278"></polygon>
+<text text-anchor="start" x="3.5" y="-1284" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;perks7 VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1260 0.5,-1278 225.5,-1278 225.5,-1260 0.5,-1260"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1260 0.5,-1278 225.5,-1278 225.5,-1260 0.5,-1260"></polygon>
+<text text-anchor="start" x="3.5" y="-1266" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ctc_breakup VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1242 0.5,-1260 225.5,-1260 225.5,-1242 0.5,-1242"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1242 0.5,-1260 225.5,-1260 225.5,-1242 0.5,-1242"></polygon>
+<text text-anchor="start" x="3.5" y="-1248" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fixed_pay VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1224 0.5,-1242 225.5,-1242 225.5,-1224 0.5,-1224"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1224 0.5,-1242 225.5,-1242 225.5,-1224 0.5,-1224"></polygon>
+<text text-anchor="start" x="3.5" y="-1230" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;variable_pay VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1206 0.5,-1224 225.5,-1224 225.5,-1206 0.5,-1206"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1206 0.5,-1224 225.5,-1224 225.5,-1206 0.5,-1206"></polygon>
+<text text-anchor="start" x="3.5" y="-1212" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;other_incentives VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1188 0.5,-1206 225.5,-1206 225.5,-1188 0.5,-1188"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1188 0.5,-1206 225.5,-1206 225.5,-1188 0.5,-1188"></polygon>
+<text text-anchor="start" x="3.5" y="-1194" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;alternate_mobile VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1170 0.5,-1188 225.5,-1188 225.5,-1170 0.5,-1170"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1170 0.5,-1188 225.5,-1188 225.5,-1170 0.5,-1170"></polygon>
+<text text-anchor="start" x="3.5" y="-1176" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;eligibility VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1152 0.5,-1170 225.5,-1170 225.5,-1152 0.5,-1152"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1152 0.5,-1170 225.5,-1170 225.5,-1152 0.5,-1152"></polygon>
+<text text-anchor="start" x="3.5" y="-1158" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;enable VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1134 0.5,-1152 225.5,-1152 225.5,-1134 0.5,-1134"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1134 0.5,-1152 225.5,-1152 225.5,-1134 0.5,-1134"></polygon>
+<text text-anchor="start" x="3.5" y="-1140" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;due_date VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1116 0.5,-1134 225.5,-1134 225.5,-1116 0.5,-1116"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1116 0.5,-1134 225.5,-1134 225.5,-1116 0.5,-1116"></polygon>
+<text text-anchor="start" x="3.5" y="-1122" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;status VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1098 0.5,-1116 225.5,-1116 225.5,-1098 0.5,-1098"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1098 0.5,-1116 225.5,-1116 225.5,-1098 0.5,-1098"></polygon>
+<text text-anchor="start" x="3.5" y="-1104" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rounds VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1080 0.5,-1098 225.5,-1098 225.5,-1080 0.5,-1080"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1080 0.5,-1098 225.5,-1098 225.5,-1080 0.5,-1080"></polygon>
+<text text-anchor="start" x="3.5" y="-1086" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;round VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1062 0.5,-1080 225.5,-1080 225.5,-1062 0.5,-1062"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1062 0.5,-1080 225.5,-1080 225.5,-1062 0.5,-1062"></polygon>
+<text text-anchor="start" x="3.5" y="-1068" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;round_name VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1044 0.5,-1062 225.5,-1062 225.5,-1044 0.5,-1044"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1044 0.5,-1062 225.5,-1062 225.5,-1044 0.5,-1044"></polygon>
+<text text-anchor="start" x="3.5" y="-1050" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;created_at VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1026 0.5,-1044 225.5,-1044 225.5,-1026 0.5,-1026"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1026 0.5,-1044 225.5,-1044 225.5,-1026 0.5,-1026"></polygon>
+<text text-anchor="start" x="3.5" y="-1032" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;updated_at VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="0.5,-1008 0.5,-1026 225.5,-1026 225.5,-1008 0.5,-1008"></polygon>
+<polygon fill="none" stroke="white" points="0.5,-1008 0.5,-1026 225.5,-1026 225.5,-1008 0.5,-1008"></polygon>
+<text text-anchor="start" x="3.5" y="-1014" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;location VARCHAR(255)</text>
+</g>
+<!-- applicants -->
+<g id="node6" class="node" style="opacity: 1;">
+<title>applicants</title>
+<polygon fill="#232d95" stroke="transparent" points="17.5,-1854 17.5,-1872 207.5,-1872 207.5,-1854 17.5,-1854"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1854 17.5,-1872 207.5,-1872 207.5,-1854 17.5,-1854"></polygon>
+<text text-anchor="start" x="20.5" y="-1861" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">applicants</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1836 17.5,-1854 207.5,-1854 207.5,-1836 17.5,-1836"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1836 17.5,-1854 207.5,-1854 207.5,-1836 17.5,-1836"></polygon>
+<text text-anchor="start" x="20.5" y="-1843" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="35.78" y="-1843" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="42.78" y="-1843" font-family="opensans" font-size="10.00" fill="white"> applicant_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1818 17.5,-1836 207.5,-1836 207.5,-1818 17.5,-1818"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1818 17.5,-1836 207.5,-1836 207.5,-1818 17.5,-1818"></polygon>
+<text text-anchor="start" x="20.5" y="-1824" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;status VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1800 17.5,-1818 207.5,-1818 207.5,-1800 17.5,-1800"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1800 17.5,-1818 207.5,-1818 207.5,-1800 17.5,-1800"></polygon>
+<text text-anchor="start" x="20.5" y="-1806" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;result VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1782 17.5,-1800 207.5,-1800 207.5,-1782 17.5,-1782"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1782 17.5,-1800 207.5,-1800 207.5,-1782 17.5,-1782"></polygon>
+<text text-anchor="start" x="20.5" y="-1788" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;remarks TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1764 17.5,-1782 207.5,-1782 207.5,-1764 17.5,-1764"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1764 17.5,-1782 207.5,-1782 207.5,-1764 17.5,-1764"></polygon>
+<text text-anchor="start" x="20.5" y="-1770" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;registerno VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1746 17.5,-1764 207.5,-1764 207.5,-1746 17.5,-1746"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1746 17.5,-1764 207.5,-1764 207.5,-1746 17.5,-1746"></polygon>
+<text text-anchor="start" x="20.5" y="-1752" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pitching TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1728 17.5,-1746 207.5,-1746 207.5,-1728 17.5,-1728"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1728 17.5,-1746 207.5,-1746 207.5,-1728 17.5,-1728"></polygon>
+<text text-anchor="start" x="20.5" y="-1734" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;selected_slot_date VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="17.5,-1710 17.5,-1728 207.5,-1728 207.5,-1710 17.5,-1710"></polygon>
+<polygon fill="none" stroke="white" points="17.5,-1710 17.5,-1728 207.5,-1728 207.5,-1710 17.5,-1710"></polygon>
+<text text-anchor="start" x="20.15" y="-1716" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;selected_slot_timings VARCHAR(255)</text>
+</g>
+<!-- query -->
+<g id="node7" class="node" style="opacity: 1;">
+<title>query</title>
+<polygon fill="#232d95" stroke="transparent" points="39.5,-2088 39.5,-2106 186.5,-2106 186.5,-2088 39.5,-2088"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-2088 39.5,-2106 186.5,-2106 186.5,-2088 39.5,-2088"></polygon>
+<text text-anchor="start" x="42.5" y="-2095" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">query</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-2070 39.5,-2088 186.5,-2088 186.5,-2070 39.5,-2070"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-2070 39.5,-2088 186.5,-2088 186.5,-2070 39.5,-2070"></polygon>
+<text text-anchor="start" x="42.5" y="-2077" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="57.78" y="-2077" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="64.78" y="-2077" font-family="opensans" font-size="10.00" fill="white"> query_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-2052 39.5,-2070 186.5,-2070 186.5,-2052 39.5,-2052"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-2052 39.5,-2070 186.5,-2070 186.5,-2052 39.5,-2052"></polygon>
+<text text-anchor="start" x="42.5" y="-2058" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-2034 39.5,-2052 186.5,-2052 186.5,-2034 39.5,-2034"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-2034 39.5,-2052 186.5,-2052 186.5,-2034 39.5,-2034"></polygon>
+<text text-anchor="start" x="42.5" y="-2040" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;id VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-2016 39.5,-2034 186.5,-2034 186.5,-2016 39.5,-2016"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-2016 39.5,-2034 186.5,-2034 186.5,-2016 39.5,-2016"></polygon>
+<text text-anchor="start" x="42.5" y="-2022" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;email VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1998 39.5,-2016 186.5,-2016 186.5,-1998 39.5,-1998"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1998 39.5,-2016 186.5,-2016 186.5,-1998 39.5,-1998"></polygon>
+<text text-anchor="start" x="42.5" y="-2004" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fullname VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1980 39.5,-1998 186.5,-1998 186.5,-1980 39.5,-1980"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1980 39.5,-1998 186.5,-1998 186.5,-1980 39.5,-1980"></polygon>
+<text text-anchor="start" x="42.04" y="-1986" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;contact_no VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1962 39.5,-1980 186.5,-1980 186.5,-1962 39.5,-1962"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1962 39.5,-1980 186.5,-1980 186.5,-1962 39.5,-1962"></polygon>
+<text text-anchor="start" x="42.5" y="-1968" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;message VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1944 39.5,-1962 186.5,-1962 186.5,-1944 39.5,-1944"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1944 39.5,-1962 186.5,-1962 186.5,-1944 39.5,-1944"></polygon>
+<text text-anchor="start" x="42.5" y="-1950" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;reply TEXT</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1926 39.5,-1944 186.5,-1944 186.5,-1926 39.5,-1926"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1926 39.5,-1944 186.5,-1944 186.5,-1926 39.5,-1926"></polygon>
+<text text-anchor="start" x="42.5" y="-1932" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;status VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1908 39.5,-1926 186.5,-1926 186.5,-1908 39.5,-1908"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1908 39.5,-1926 186.5,-1926 186.5,-1908 39.5,-1908"></polygon>
+<text text-anchor="start" x="42.5" y="-1914" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;created_at VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="39.5,-1890 39.5,-1908 186.5,-1908 186.5,-1890 39.5,-1890"></polygon>
+<polygon fill="none" stroke="white" points="39.5,-1890 39.5,-1908 186.5,-1908 186.5,-1890 39.5,-1890"></polygon>
+<text text-anchor="start" x="42.04" y="-1896" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;updated_at VARCHAR(255)</text>
+</g>
+<!-- student -->
+<g id="node8" class="node" style="opacity: 1;">
+<title>student</title>
+<polygon fill="#232d95" stroke="transparent" points="12.5,-2340 12.5,-2358 213.5,-2358 213.5,-2340 12.5,-2340"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2340 12.5,-2358 213.5,-2358 213.5,-2340 12.5,-2340"></polygon>
+<text text-anchor="start" x="15.5" y="-2347" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">student</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2322 12.5,-2340 213.5,-2340 213.5,-2322 12.5,-2322"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2322 12.5,-2340 213.5,-2340 213.5,-2322 12.5,-2322"></polygon>
+<text text-anchor="start" x="15.5" y="-2328" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;student_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2304 12.5,-2322 213.5,-2322 213.5,-2304 12.5,-2304"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2304 12.5,-2322 213.5,-2322 213.5,-2304 12.5,-2304"></polygon>
+<text text-anchor="start" x="15.39" y="-2310" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;register_no VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2286 12.5,-2304 213.5,-2304 213.5,-2286 12.5,-2286"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2286 12.5,-2304 213.5,-2304 213.5,-2286 12.5,-2286"></polygon>
+<text text-anchor="start" x="15.5" y="-2292" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;class VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2268 12.5,-2286 213.5,-2286 213.5,-2268 12.5,-2268"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2268 12.5,-2286 213.5,-2286 213.5,-2268 12.5,-2268"></polygon>
+<text text-anchor="start" x="15.5" y="-2274" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;degree VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2250 12.5,-2268 213.5,-2268 213.5,-2250 12.5,-2250"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2250 12.5,-2268 213.5,-2268 213.5,-2250 12.5,-2250"></polygon>
+<text text-anchor="start" x="15.5" y="-2256" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;stream VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2232 12.5,-2250 213.5,-2250 213.5,-2232 12.5,-2232"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2232 12.5,-2250 213.5,-2250 213.5,-2232 12.5,-2232"></polygon>
+<text text-anchor="start" x="15.5" y="-2238" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;semester VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2214 12.5,-2232 213.5,-2232 213.5,-2214 12.5,-2214"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2214 12.5,-2232 213.5,-2232 213.5,-2214 12.5,-2214"></polygon>
+<text text-anchor="start" x="15.5" y="-2220" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CGPA VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2196 12.5,-2214 213.5,-2214 213.5,-2196 12.5,-2196"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2196 12.5,-2214 213.5,-2214 213.5,-2196 12.5,-2196"></polygon>
+<text text-anchor="start" x="15.5" y="-2202" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;backlog_number VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2178 12.5,-2196 213.5,-2196 213.5,-2178 12.5,-2178"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2178 12.5,-2196 213.5,-2196 213.5,-2178 12.5,-2178"></polygon>
+<text text-anchor="start" x="15.5" y="-2184" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;backlog_subject VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2160 12.5,-2178 213.5,-2178 213.5,-2160 12.5,-2160"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2160 12.5,-2178 213.5,-2178 213.5,-2160 12.5,-2160"></polygon>
+<text text-anchor="start" x="15.5" y="-2167" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="30.78" y="-2167" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="37.78" y="-2167" font-family="opensans" font-size="10.00" fill="white"> email VARCHAR(255 &#160;NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2142 12.5,-2160 213.5,-2160 213.5,-2142 12.5,-2142"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2142 12.5,-2160 213.5,-2160 213.5,-2142 12.5,-2142"></polygon>
+<text text-anchor="start" x="15.5" y="-2148" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;created_by UUID</text>
+<polygon fill="#404040" stroke="transparent" points="12.5,-2124 12.5,-2142 213.5,-2142 213.5,-2124 12.5,-2124"></polygon>
+<polygon fill="none" stroke="white" points="12.5,-2124 12.5,-2142 213.5,-2142 213.5,-2124 12.5,-2124"></polygon>
+<text text-anchor="start" x="15.5" y="-2130" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;batch VARCHAR(255)</text>
+</g>
+<!-- logger -->
+<g id="node9" class="node" style="opacity: 1;">
+<title>logger</title>
+<polygon fill="#232d95" stroke="transparent" points="18.5,-2430 18.5,-2448 207.5,-2448 207.5,-2430 18.5,-2430"></polygon>
+<polygon fill="none" stroke="white" points="18.5,-2430 18.5,-2448 207.5,-2448 207.5,-2430 18.5,-2430"></polygon>
+<text text-anchor="start" x="21.5" y="-2437" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">logger</text>
+<polygon fill="#404040" stroke="transparent" points="18.5,-2412 18.5,-2430 207.5,-2430 207.5,-2412 18.5,-2412"></polygon>
+<polygon fill="none" stroke="white" points="18.5,-2412 18.5,-2430 207.5,-2430 207.5,-2412 18.5,-2412"></polygon>
+<text text-anchor="start" x="21.5" y="-2418" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;member VARCHAR(255) NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="18.5,-2394 18.5,-2412 207.5,-2412 207.5,-2394 18.5,-2394"></polygon>
+<polygon fill="none" stroke="white" points="18.5,-2394 18.5,-2412 207.5,-2412 207.5,-2394 18.5,-2394"></polygon>
+<text text-anchor="start" x="21.5" y="-2400" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;type VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="18.5,-2376 18.5,-2394 207.5,-2394 207.5,-2376 18.5,-2376"></polygon>
+<polygon fill="none" stroke="white" points="18.5,-2376 18.5,-2394 207.5,-2394 207.5,-2376 18.5,-2376"></polygon>
+<text text-anchor="start" x="21.5" y="-2382" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;datetime TIMESTAMP</text>
+</g>
+<!-- interview -->
+<g id="node10" class="node" style="opacity: 1;">
+<title>interview</title>
+<polygon fill="#232d95" stroke="transparent" points="32.5,-2574 32.5,-2592 193.5,-2592 193.5,-2574 32.5,-2574"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2574 32.5,-2592 193.5,-2592 193.5,-2574 32.5,-2574"></polygon>
+<text text-anchor="start" x="35.5" y="-2581" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">interview</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2556 32.5,-2574 193.5,-2574 193.5,-2556 32.5,-2556"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2556 32.5,-2574 193.5,-2574 193.5,-2556 32.5,-2556"></polygon>
+<text text-anchor="start" x="35.38" y="-2562" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;interview_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2538 32.5,-2556 193.5,-2556 193.5,-2538 32.5,-2538"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2538 32.5,-2556 193.5,-2556 193.5,-2538 32.5,-2538"></polygon>
+<text text-anchor="start" x="35.5" y="-2544" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;slot_timings VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2520 32.5,-2538 193.5,-2538 193.5,-2520 32.5,-2520"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2520 32.5,-2538 193.5,-2538 193.5,-2520 32.5,-2520"></polygon>
+<text text-anchor="start" x="35.5" y="-2526" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;slot_time VARCHAR(255) [ ]</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2502 32.5,-2520 193.5,-2520 193.5,-2502 32.5,-2502"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2502 32.5,-2520 193.5,-2520 193.5,-2502 32.5,-2502"></polygon>
+<text text-anchor="start" x="35.5" y="-2508" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;slot_dates VARCHAR(255) [ ]</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2484 32.5,-2502 193.5,-2502 193.5,-2484 32.5,-2484"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2484 32.5,-2502 193.5,-2502 193.5,-2484 32.5,-2484"></polygon>
+<text text-anchor="start" x="35.5" y="-2490" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;link VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="32.5,-2466 32.5,-2484 193.5,-2484 193.5,-2466 32.5,-2466"></polygon>
+<polygon fill="none" stroke="white" points="32.5,-2466 32.5,-2484 193.5,-2484 193.5,-2466 32.5,-2466"></polygon>
+<text text-anchor="start" x="35.5" y="-2472" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;description TEXT</text>
+</g>
+<!-- subjects -->
+<g id="node11" class="node" style="opacity: 1;">
+<title>subjects</title>
+<polygon fill="#232d95" stroke="transparent" points="30.5,-2664 30.5,-2682 194.5,-2682 194.5,-2664 30.5,-2664"></polygon>
+<polygon fill="none" stroke="white" points="30.5,-2664 30.5,-2682 194.5,-2682 194.5,-2664 30.5,-2664"></polygon>
+<text text-anchor="start" x="33.5" y="-2671" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">subjects</text>
+<polygon fill="#404040" stroke="transparent" points="30.5,-2646 30.5,-2664 194.5,-2664 194.5,-2646 30.5,-2646"></polygon>
+<polygon fill="none" stroke="white" points="30.5,-2646 30.5,-2664 194.5,-2664 194.5,-2646 30.5,-2646"></polygon>
+<text text-anchor="start" x="33.5" y="-2653" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="48.78" y="-2653" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="55.78" y="-2653" font-family="opensans" font-size="10.00" fill="white"> course_id UUID</text>
+<polygon fill="#404040" stroke="transparent" points="30.5,-2628 30.5,-2646 194.5,-2646 194.5,-2628 30.5,-2628"></polygon>
+<polygon fill="none" stroke="white" points="30.5,-2628 30.5,-2646 194.5,-2646 194.5,-2628 30.5,-2628"></polygon>
+<text text-anchor="start" x="33.5" y="-2634" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;course VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="30.5,-2610 30.5,-2628 194.5,-2628 194.5,-2610 30.5,-2610"></polygon>
+<polygon fill="none" stroke="white" points="30.5,-2610 30.5,-2628 194.5,-2628 194.5,-2610 30.5,-2610"></polygon>
+<text text-anchor="start" x="33.5" y="-2616" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;academic_year VARCHAR(255)</text>
+</g>
+<!-- hod -->
+<g id="node12" class="node" style="opacity: 1;">
+<title>hod</title>
+<polygon fill="#232d95" stroke="transparent" points="40.5,-2772 40.5,-2790 185.5,-2790 185.5,-2772 40.5,-2772"></polygon>
+<polygon fill="none" stroke="white" points="40.5,-2772 40.5,-2790 185.5,-2790 185.5,-2772 40.5,-2772"></polygon>
+<text text-anchor="start" x="43.5" y="-2779" font-family="opensans" font-weight="bold" font-size="10.00" fill="white">hod</text>
+<polygon fill="#404040" stroke="transparent" points="40.5,-2754 40.5,-2772 185.5,-2772 185.5,-2754 40.5,-2754"></polygon>
+<polygon fill="none" stroke="white" points="40.5,-2754 40.5,-2772 185.5,-2772 185.5,-2754 40.5,-2754"></polygon>
+<text text-anchor="start" x="43.5" y="-2760" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;hod_id UUID NOT NULL</text>
+<polygon fill="#404040" stroke="transparent" points="40.5,-2736 40.5,-2754 185.5,-2754 185.5,-2736 40.5,-2736"></polygon>
+<polygon fill="none" stroke="white" points="40.5,-2736 40.5,-2754 185.5,-2754 185.5,-2736 40.5,-2736"></polygon>
+<text text-anchor="start" x="43.26" y="-2743" font-family="opensans" font-size="10.00" fill="#e2c044">PK </text>
+<text text-anchor="start" x="58.54" y="-2743" font-family="opensans" font-size="10.00"> | </text>
+<text text-anchor="start" x="65.54" y="-2743" font-family="opensans" font-size="10.00" fill="white"> department VARCHAR(255</text>
+<polygon fill="#404040" stroke="transparent" points="40.5,-2718 40.5,-2736 185.5,-2736 185.5,-2718 40.5,-2718"></polygon>
+<polygon fill="none" stroke="white" points="40.5,-2718 40.5,-2736 185.5,-2736 185.5,-2718 40.5,-2718"></polygon>
+<text text-anchor="start" x="43.5" y="-2724" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;name VARCHAR(255)</text>
+<polygon fill="#404040" stroke="transparent" points="40.5,-2700 40.5,-2718 185.5,-2718 185.5,-2700 40.5,-2700"></polygon>
+<polygon fill="none" stroke="white" points="40.5,-2700 40.5,-2718 185.5,-2718 185.5,-2700 40.5,-2700"></polygon>
+<text text-anchor="start" x="43.5" y="-2706" font-family="opensans" font-size="10.00" fill="white"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;password VARCHAR(255)</text>
+</g>
+</g>
+</svg>

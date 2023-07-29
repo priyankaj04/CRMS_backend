@@ -26,13 +26,15 @@ app.route('/verify/:type').post(async (req, res) => {
             const otp = generateRandomNumber().toString();
             const encrypt = await Hashpassword(otp);
             var query = [];
+            console.log(otp);
             if (type == 'talent') {
                 query = await pool.query("UPDATE talent SET otp = $1 WHERE email = $2", [encrypt, req.body.email]);
                 const mailOptions = {
                     from: 'priyankaj_r20@bmscw.edu.in',
-                    to: req.body.email,
+                    to: 'priyankaj_r20@bmscw.edu.in',
                     subject: 'Your OTP',
-                    text: `Your One-Time Password (OTP) is: ${otp}`,
+                    text: `Your One-Time Password (OTP) is: ${otp}.\n\n 🎉🎊 Welcome to Talent Connect! 🎉🎊\n\n\n I see you are having trouble in your login. For any help, you can reply for this mail and we are happy to help you 🤝
+                    \n\n Do not share your email/OTP with others.`,
                 };
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
@@ -52,7 +54,8 @@ app.route('/verify/:type').post(async (req, res) => {
                 query = await pool.query("UPDATE recruiter SET otp = $1 WHERE contactno = $2", [encrypt, req.body.mobile]);
                 client.messages
                     .create({
-                        body: `Welcome to Talent connect. Your OTP is ${otp}`,
+                        body: `\n\n Your One-Time Password (OTP) is: ${otp}.\n\n 🎉🎊 Welcome to Talent Connect! 🎉🎊\n\n\n I see you are having trouble in your login. For any help, you can email on priyankaj_r20@bmscw.edu.in and we are happy to help you 🤝
+                    \n\n Do not share your OTP with others.`,
                         from: '+14026859986',
                         to: `+91${req.body.mobile}`
                     })

@@ -6,6 +6,7 @@ const { v4: uuidv4, validate: isValidUUID } = require('uuid');
 //"POST" method for student registration
 app.route('/create').post(async (req, res) => {
     try {
+        console.log(req);
         const { register_no, classes, degree, stream, semester, CGPA, backlog_number, backlog_subject, email, tenth_details, twelth_details, ug_details, subject_marks, batch } = req.body;
         const student_id = uuidv4();
         const checkUser = await pool.query("SELECT * FROM student WHERE register_no = $1", [register_no]);

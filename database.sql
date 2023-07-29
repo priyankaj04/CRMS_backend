@@ -1,9 +1,9 @@
 CREATE DATABASE crms;
 
 CREATE TABLE talent(
-    talent_id UUID NOT NULL,
+    talent_id UUID NOT NULL REFERENCES users (id),
     profile_url TEXT,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL REFERENCES student (email),
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE talent(
 
 
 CREATE TABLE admin(
-    admin_id UUID NOT NULL,
+    admin_id UUID NOT NULL REFERENCES users(id),
     email VARCHAR(255) PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE admin(
 
 CREATE TABLE resume(
     resume_id UUID PRIMARY KEY NOT NULL,
-    talent_id UUID NOT NULL,
+    register_no UUID NOT NULL REFERENCES talent(register_no),
     education JSON[], 
     job JSON[],
     internship JSON[],
@@ -52,7 +52,7 @@ CREATE TABLE resume(
 );
 
 CREATE TABLE recruiter(
-    recruiter_id UUID NOT NULL,
+    recruiter_id UUID NOT NULL REFERENCES users(id),
     logo_url BYTEA,
     email VARCHAR(255) NOT NULL PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE recruiter(
 
 CREATE TABLE application(
     application_id UUID NOT NULL,
-    recruiter_id UUID NOT NULL,
+    recruiter_id UUID NOT NULL REFERENCES recruiter (recruiter_id),
     opportunity_type VARCHAR(255) NOT NULL,
     job_title VARCHAR(255),
     company_name VARCHAR(255),
@@ -124,14 +124,14 @@ CREATE TABLE application(
 
 CREATE TABLE applicants(
     applicant_id UUID NOT NULL PRIMARY KEY,
-    application_id UUID NOT NULL,
+    application_id UUID NOT NULL REFERENCES application (application_id),
     status VARCHAR(255),
     result VARCHAR(255),
     remarks TEXT,
     registerno VARCHAR(255),
     pitching TEXT,
-    resume_id UUID NOT NULL,
-    talent_id UUID NOT NULL,
+    resume_id UUID NOT NULL REFERENCES resume (resume_id),
+    talent_id UUID NOT NULL REFERENCES talent (talent_id),
     selected_slot_date VARCHAR(255),
     selected_slot_timings VARCHAR(255)
 );
@@ -141,7 +141,7 @@ CREATE TABLE applicants(
 CREATE TABLE query(
     query_id UUID NOT NULL PRIMARY KEY,
     type VARCHAR(255),
-    id VARCHAR(255),
+    id VARCHAR(255) REFERENCES users(id),
     email VARCHAR(255),
     fullname VARCHAR(255),
     contact_no VARCHAR(255),
@@ -174,6 +174,7 @@ CREATE TABLE query(
 
 CREATE TABLE student(
     student_id UUID NOT NULL,
+    course_id UUID NOT NULL REFERENCES subject(course_id),
     register_no VARCHAR(255) NOT NULL,
     class VARCHAR(255),
     degree VARCHAR(255),
@@ -203,13 +204,13 @@ CREATE TABLE logger(
 
 CREATE TABLE interview(
     interview_id UUID NOT NULL,
-    application_id UUID NOT NULL,
-    talent_id UUID NOT NULL,
+    application_id UUID NOT NULL REFERENCES application (application_id),
+    talent_id UUID NOT NULL REFERENCES talent (talent_id),
     slot_timings VARCHAR(255),
     slot_time VARCHAR(255)[],
     slot_dates VARCHAR(255)[],
     link VARCHAR(255),
-    description VARCHAR(255),
+    description TEXT,
     slots JSON[]
 );
 
@@ -217,6 +218,7 @@ CREATE TABLE interview(
 
 
 CREATE TABLE subjects(
+    department VARCHAR(255) NOT NULL REFERENCES hod (department),
     course_id UUID PRIMARY KEY,
     course VARCHAR(255),
     subject JSON,
@@ -224,11 +226,15 @@ CREATE TABLE subjects(
 );
 
 CREATE TABLE hod(
-    hod_id UUID NOT NULL,
     department VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255),
     password VARCHAR(255)
 );
 
+
+CREATE TABLE users(
+    id UUID PRIMARY KEY,
+    type VARCHAR(255) NOT NULL
+);
 
 --12 tables

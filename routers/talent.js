@@ -50,11 +50,12 @@ app.route('/verify/:id').post(async (req, res) => {
         const encrypt = await Hashpassword(otp);
         const query = await pool.query("UPDATE talent SET otp = $1 WHERE talent_id = $2", [encrypt, id])
         //const value = await sendOTP(req.body.email, otp);
+        console.log(otp);
         const mailOptions = {
             from: 'priyankaj_r20@bmscw.edu.in',
-            to: req.body.email,
+            to: 'priyankaj_r20@bmscw.edu.in',
             subject: 'Your OTP',
-            text: `Your One-Time Password (OTP) is: ${otp}`,
+            text: `Your One-Time Password (OTP) is: ${otp}. \n\n🎉🎊Welcome to Talent Connect!🎉🎊\n\n\n If you have any queries before using our application or any information to pass on to us, we are here for you. Reply for this same mail, and reach to you in no-time. Thank you for using our app! We are happy to see you here.\n\n\n Once again, Welcome to Talent Connect Community!!!🎉🎊`,
         };
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
