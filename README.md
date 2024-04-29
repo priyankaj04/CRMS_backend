@@ -1,7 +1,7 @@
 # Campus Recruitement Management System - Backend
 
 ### ER Diagram
-[erdiagram.pdf](https://github.com/priyankaj04/CRMS_backend/files/15151846/erdiagram.pdf)
+[erdiagram]([https://github.com/priyankaj04/CRMS_backend/files/15151846/erdiagram.pdf](https://github.com/priyankaj04/CRMS_backend/blob/master/erdiagram.pdf))
 
 ### DB Schema
 ```
