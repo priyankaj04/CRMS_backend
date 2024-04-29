@@ -1,5 +1,33 @@
 # Campus Recruitement Management System - Backend
 
+### 📌 Requirements
+• 4 logins i.e., Students, HOD, Admin, Recruiter
+
+- Student Flow
+    - Login to app by password
+        - Build their resume and fill in all their details
+            -  Students apply to job
+                - Wait for application selection
+                    - After selection, get Interview Slot
+                        - After Interview, Receives mail
+
+- Recruiter Flow
+    - Login to app by password
+        - Fill in company details
+            - Create Job Application
+                - Wait for Application approval by Admin
+                    - After Approval, select applicants by their resume
+                        - After selection, schedule Interview meeting and Hire or Reject Applicants
+                          
+- Admin
+    - Adds Students by Class and Section wise
+        - Reply to queries by both students and recruiters
+            - Approves applications, posted by recruiters
+                - View all the activities by students and recruiters
+
+- HOD
+    - Respective HOD's Create and Edit their subject chapter details.
+
 * [ER Diagram](https://github.com/priyankaj04/CRMS_backend/blob/master/erdiagram.pdf)
 
 ### DB Schema
