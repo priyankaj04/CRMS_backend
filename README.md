@@ -1,37 +1,48 @@
-# Campus Recruitement Management System - Backend
+# Campus Recruitment Management System - Backend
+
 
 ### 📌 Requirements
-• 4 logins i.e., Students, HOD, Admin, Recruiter
 
-- Student Flow
-    - Login to app by password
-        - Build their resume and fill in all their details
-            -  Students apply to job
-                - Wait for application selection
-                    - After selection, get Interview Slot
-                        - After Interview, Receives mail
+The backend of the Campus Recruitment Management System (CRMS) supports four types of user logins: Students, HODs, Admins, and Recruiters.
 
-- Recruiter Flow
-    - Login to app by password
-        - Fill in company details
-            - Create Job Application
-                - Wait for Application approval by Admin
-                    - After Approval, select applicants by their resume
-                        - After selection, schedule Interview meeting and Hire or Reject Applicants
-                          
-- Admin
-    - Adds Students by Class and Section wise
-        - Reply to queries by both students and recruiters
-            - Approves applications, posted by recruiters
-                - View all the activities by students and recruiters
 
-- HOD
-    - Respective HOD's Create and Edit their subject chapter details.
+* User Flows
+    * Log in to the app using a password.
+    * Build a resume and fill in all necessary details.
+    * Apply for job openings.
+    * Wait for application selection.
+    * Upon selection, receive an interview slot.
+    * After the interview, receive an email notification regarding the outcome.
 
-* [ER Diagram](https://github.com/priyankaj04/CRMS_backend/blob/master/erdiagram.pdf)
 
-### DB Schema
-```
+* Recruiter Flow
+    * Log in to the app using a password.
+    * Fill in company details.
+    * Create job applications.
+    * Wait for application approval by the Admin.
+    * After approval, select applicants based on their resumes.
+    * Schedule interview meetings and make hiring decisions (hire or reject).
+
+
+* Admin Flow
+    * Add students by class and section.
+    * Respond to queries from both students and recruiters.
+    * Approve job applications posted by recruiters.
+    * Monitor all activities by students and recruiters.
+
+
+* HOD Flow
+    * Respective HODs create and edit their subject chapter details.
+ 
+
+## ER Diagram
+
+
+You can view the Entity-Relationship (ER) Diagram of the CRMS to understand the structure and relationships within the system's database. The diagram provides a visual representation of the data model and is available [here](https://github.com/priyankaj04/CRMS_backend/blob/master/erdiagram.pdf).
+
+
+## DB Schema
+```sql
 CREATE DATABASE crms;
 
 CREATE TABLE talent(
@@ -58,9 +69,6 @@ CREATE TABLE talent(
     otp VARCHAR(255),
     auth VARCHAR(255)
 );
-
--- profile image - TEXT, url, created_At
-
 
 CREATE TABLE admin(
     admin_id UUID NOT NULL REFERENCES users(id),
@@ -106,9 +114,6 @@ CREATE TABLE recruiter(
     otp VARCHAR(255),
     auth VARCHAR(255)
 );
---change database to email primary key
---company email, social media json object
-
 
 CREATE TABLE application(
     application_id UUID NOT NULL,
@@ -151,11 +156,6 @@ CREATE TABLE application(
     location VARCHAR(255)
 );
 
---job_type, opportunity_type, skills, number_of_openings, job_description,
---eligibility, preferences, ctc, ctc_breakup, fixed_pay, variable_pay, 
---other_incentives,perks, coverletter, availability, assessment_questions,alternate_mode
-
-
 CREATE TABLE applicants(
     applicant_id UUID NOT NULL PRIMARY KEY,
     application_id UUID NOT NULL REFERENCES application (application_id),
@@ -170,8 +170,6 @@ CREATE TABLE applicants(
     selected_slot_timings VARCHAR(255)
 );
 
---email varchar(255)
-
 CREATE TABLE query(
     query_id UUID NOT NULL PRIMARY KEY,
     type VARCHAR(255),
@@ -185,26 +183,6 @@ CREATE TABLE query(
     created_at VARCHAR(255),
     updated_at VARCHAR(255)
 );
-
---CREATE TABLE admin(
---    admin_id UUID NOT NULL,
---    userID VARCHAR(255) PRIMARY KEY,
---    password VARCHAR(255)
---);
-
---  salary_currency VARCHAR(255),
---     salary VARCHAR(255),
---     salary2 VARCHAR(255),
---     salary_scale VARCHAR(255),
---     salary_currency_min_assured VARCHAR(255),
---     salary_min_assured VARCHAR(255),
---     salary_scale_min_assured VARCHAR(255),
---     salary_currency_incentive_based VARCHAR(255),
---     salary_incentive_based VARCHAR(255),
---     salary2_incentive_based VARCHAR(255),
---     salary_performance_scale_incentive_based VARCHAR(255),
---     salary_performance_scale_others_incentive_based: VARCHAR(255),
-
 
 CREATE TABLE student(
     student_id UUID NOT NULL,
@@ -225,16 +203,12 @@ CREATE TABLE student(
     subject_marks JSON[],
     batch VARCHAR(255)
 );
---subject_marks JSON[],
---tenth_details(school, percentage, year, boards)
---12th_details(college, percentage, year, boards, stream)
 
 CREATE TABLE logger(
     member VARCHAR(255) NOT NULL,
     type VARCHAR(255),
     datetime TIMESTAMP
 );
-
 
 CREATE TABLE interview(
     interview_id UUID NOT NULL,
@@ -247,9 +221,6 @@ CREATE TABLE interview(
     description TEXT,
     slots JSON[]
 );
-
---interview results
-
 
 CREATE TABLE subjects(
     department VARCHAR(255) NOT NULL REFERENCES hod (department),
@@ -274,6 +245,4 @@ CREATE TABLE users(
 --12 tables
 ```
 
-[Documentation Link](https://drive.google.com/file/d/1u7qFT6VKDIreuA22Wmdv405Lf2OltuBd/view)
-
-### Thankyou
+### Thankyou so much :)
