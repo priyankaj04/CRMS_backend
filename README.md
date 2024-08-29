@@ -41,6 +41,12 @@ The backend of the Campus Recruitment Management System (CRMS) supports four typ
 You can view the Entity-Relationship (ER) Diagram of the CRMS to understand the structure and relationships within the system's database. The diagram provides a visual representation of the data model and is available [here](https://github.com/priyankaj04/CRMS_backend/blob/master/erdiagram.pdf).
 
 
+## Repository Structure
+
+
+This repository contains the backend code for the CRMS application. For the frontend code, please refer to the [CRMS Frontend Repository](https://github.com/priyankaj04/CampusRecruitmentApp).
+
+
 ## DB Schema
 ```sql
 CREATE DATABASE crms;
